@@ -4,13 +4,13 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Palette, Rocket, Users } from "lucide-react";
+import { Code2, Briefcase, Rocket, Layers } from "lucide-react";
 
 const stats = [
-  { icon: Code2, label: "Years Experience", value: "5+" },
-  { icon: Rocket, label: "Projects Completed", value: "50+" },
-  { icon: Users, label: "Happy Clients", value: "30+" },
-  { icon: Palette, label: "Design Systems", value: "10+" },
+  { icon: Briefcase, label: "Years Experience", value: "3+" },
+  { icon: Rocket, label: "Projects Delivered", value: "20+" },
+  { icon: Code2, label: "Technologies", value: "15+" },
+  { icon: Layers, label: "Full Stack Apps", value: "10+" },
 ];
 
 export function About() {
@@ -30,8 +30,8 @@ export function About() {
             About Me
           </p>
           <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Passionate about crafting{" "}
-            <span className="text-primary">digital experiences</span>
+            Passionate about building{" "}
+            <span className="text-primary">scalable solutions</span>
           </h2>
         </motion.div>
 
@@ -43,21 +43,28 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I&apos;m a full-stack developer with a passion for building web
-              applications that are not only functional but also visually
-              stunning. With over 5 years of experience, I&apos;ve worked with
-              startups and established companies to bring their ideas to life.
+              I&apos;m Mohammed Farhan K C, a Full Stack Developer from Kannur,
+              India. I specialize in turning ideas into digital reality —
+              crafting tailored solutions that align with your goals and help
+              businesses achieve new heights.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              My approach combines clean code with thoughtful design — because
-              great software should feel as good as it works. I specialize in
-              React, Next.js, TypeScript, and Node.js, with a keen eye for UI/UX
-              design.
+              Currently working as a Python Developer at{" "}
+              <span className="font-medium text-foreground">
+                AST Solutions LLC
+              </span>{" "}
+              since March 2023. Previously, I worked as a Python Full Stack
+              Developer at{" "}
+              <span className="font-medium text-foreground">
+                Quest Innovative Solutions
+              </span>{" "}
+              (June 2022 – January 2023).
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              When I&apos;m not coding, you&apos;ll find me exploring new
-              technologies, contributing to open source, or sharing knowledge
-              through blog posts and talks.
+              I hold a Bachelor of Computer Application from Jamia Hamdard. My
+              stack spans Python ecosystems (Django, FastAPI, Flask, Odoo) to
+              modern frontend (React, Next.js, Flutter) and databases
+              (PostgreSQL, MongoDB, MySQL).
             </p>
           </motion.div>
 

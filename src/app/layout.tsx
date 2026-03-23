@@ -1,21 +1,66 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
+
+const siteUrl = "https://mdfarhankc.vercel.app";
 
 export const metadata: Metadata = {
-  title: "John Doe — Developer & Designer",
+  title: "Farhan — Python Full Stack Developer",
   description:
-    "Portfolio of John Doe — a full-stack developer crafting beautiful, performant web experiences.",
+    "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications with Django, FastAPI, React, and Next.js.",
+  keywords: [
+    "Mohammed Farhan K C",
+    "Farhan",
+    "Full Stack Developer",
+    "Python Developer",
+    "Django",
+    "FastAPI",
+    "React",
+    "Next.js",
+    "Portfolio",
+  ],
+  authors: [{ name: "Mohammed Farhan K C" }],
+  creator: "Mohammed Farhan K C",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    title: "Farhan — Python Full Stack Developer",
+    description:
+      "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications.",
+    siteName: "Farhan's Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Mohammed Farhan K C — Python Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farhan — Python Full Stack Developer",
+    description:
+      "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -26,9 +71,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

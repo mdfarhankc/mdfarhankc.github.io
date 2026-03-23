@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 export function Hero() {
   return (
@@ -30,7 +30,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <p className="mb-4 font-mono text-sm tracking-widest text-primary uppercase">
-            Full-Stack Developer & Designer
+            Python Full Stack Developer
           </p>
         </motion.div>
 
@@ -42,10 +42,10 @@ export function Hero() {
         >
           Hi, I&apos;m{" "}
           <span
-            className="bg-gradient-to-r from-primary via-chart-2 to-primary bg-[length:200%_auto] bg-clip-text text-transparent"
+            className="bg-linear-to-r from-primary via-chart-2 to-primary bg-size-[200%_auto] bg-clip-text text-transparent"
             style={{ animation: "gradient-shift 4s ease-in-out infinite" }}
           >
-            John Doe
+            Farhan
           </span>
         </motion.h1>
 
@@ -55,8 +55,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          I craft beautiful, performant web experiences with modern technologies.
-          Turning complex problems into elegant solutions.
+          Turning passion into pixels — I craft tailored solutions with Python,
+          Django, FastAPI, React, and Next.js that transform ideas into digital
+          reality.
         </motion.p>
 
         <motion.div
@@ -65,11 +66,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <Button size="lg" className="px-8" render={<a href="#projects" />}>
-            View My Work
+          <Button size="lg" className="px-8" asChild>
+            <a href="#projects">View My Work</a>
           </Button>
-          <Button size="lg" variant="outline" className="px-8" render={<a href="#contact" />}>
-            Get In Touch
+          <Button size="lg" variant="outline" className="px-8" asChild>
+            <a href="/resume.pdf" download>
+              <Download className="mr-2 h-4 w-4" />
+              Download CV
+            </a>
           </Button>
         </motion.div>
 
@@ -80,9 +84,26 @@ export function Hero() {
           className="mt-12 flex items-center justify-center gap-5"
         >
           {[
-            { icon: Github, href: "https://github.com", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:hello@johndoe.com", label: "Email" },
+            {
+              icon: Github,
+              href: "https://github.com/mdfarhankc",
+              label: "GitHub",
+            },
+            {
+              icon: Linkedin,
+              href: "https://linkedin.com/in/mdfarhankc",
+              label: "LinkedIn",
+            },
+            {
+              icon: Instagram,
+              href: "https://instagram.com/md_farhankc",
+              label: "Instagram",
+            },
+            {
+              icon: Mail,
+              href: "mailto:kcfarhan123@gmail.com",
+              label: "Email",
+            },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}

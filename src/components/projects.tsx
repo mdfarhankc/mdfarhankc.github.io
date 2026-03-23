@@ -9,38 +9,38 @@ import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "ERP Management System",
     description:
-      "A full-stack e-commerce platform with real-time inventory management, Stripe payments, and an admin dashboard built for scale.",
-    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "PostgreSQL"],
-    image: "from-violet-600/20 to-indigo-600/20",
+      "A comprehensive ERP solution built with Odoo for managing inventory, sales, accounting, and HR modules for a mid-size enterprise.",
+    tags: ["Odoo", "Python", "PostgreSQL", "Docker"],
+    gradient: "from-violet-600/20 to-indigo-600/20",
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    title: "AI Content Studio",
+    title: "REST API Platform",
     description:
-      "An AI-powered content generation platform with real-time collaboration, version history, and team management features.",
-    tags: ["React", "Node.js", "OpenAI", "WebSocket", "MongoDB"],
-    image: "from-cyan-600/20 to-teal-600/20",
+      "A high-performance API platform built with FastAPI featuring JWT authentication, role-based access control, and auto-generated docs.",
+    tags: ["FastAPI", "Python", "PostgreSQL", "Docker"],
+    gradient: "from-cyan-600/20 to-teal-600/20",
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    title: "Analytics Dashboard",
+    title: "Full Stack Web App",
     description:
-      "A real-time analytics dashboard with interactive charts, custom reports, and automated insights for SaaS businesses.",
-    tags: ["Next.js", "D3.js", "Python", "FastAPI", "Redis"],
-    image: "from-orange-600/20 to-rose-600/20",
+      "A modern web application with Django backend and React frontend, featuring real-time updates, dashboards, and user management.",
+    tags: ["Django", "React", "TypeScript", "PostgreSQL"],
+    gradient: "from-orange-600/20 to-rose-600/20",
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    title: "Social Media App",
+    title: "Next.js Portfolio",
     description:
-      "A modern social platform with real-time messaging, stories, and an algorithmic feed. Built for performance at scale.",
-    tags: ["React Native", "GraphQL", "AWS", "DynamoDB", "S3"],
-    image: "from-emerald-600/20 to-lime-600/20",
+      "This portfolio website built with Next.js, Tailwind CSS, shadcn/ui, and Motion — showcasing modern frontend development practices.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    gradient: "from-emerald-600/20 to-lime-600/20",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -78,40 +78,32 @@ export function Projects() {
               <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
                 {/* Gradient header */}
                 <div
-                  className={`relative h-48 bg-gradient-to-br ${project.image} flex items-center justify-center`}
+                  className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${project.gradient}`}
                 >
                   <div className="text-6xl font-bold text-foreground/10">
                     {project.title.charAt(0)}
                   </div>
                   {/* Hover overlay with links */}
                   <div className="absolute inset-0 flex items-center justify-center gap-4 bg-background/80 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      render={
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />
-                      }
-                    >
-                      <ArrowUpRight className="mr-1 h-4 w-4" />
-                      Live
+                    <Button size="sm" variant="secondary" asChild>
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ArrowUpRight className="mr-1 h-4 w-4" />
+                        Live
+                      </a>
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      render={
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />
-                      }
-                    >
-                      <Github className="mr-1 h-4 w-4" />
-                      Code
+                    <Button size="sm" variant="outline" asChild>
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="mr-1 h-4 w-4" />
+                        Code
+                      </a>
                     </Button>
                   </div>
                 </div>
