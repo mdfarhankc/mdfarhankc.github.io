@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import Link from "next/link";
+import { motion, useInView } from "motion/react";
+import { ArrowRight, Github } from "lucide-react";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github } from "lucide-react";
-import Link from "next/link";
 import { getFeaturedProjects } from "@/data/projects";
 
 const featured = getFeaturedProjects();

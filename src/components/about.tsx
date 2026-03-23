@@ -1,17 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
 import { useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Briefcase, Rocket, Layers } from "lucide-react";
+import { motion, useInView } from "motion/react";
 
-const stats = [
-  { icon: Briefcase, label: "Years Experience", value: "3+" },
-  { icon: Rocket, label: "Projects Delivered", value: "20+" },
-  { icon: Code2, label: "Technologies", value: "15+" },
-  { icon: Layers, label: "Full Stack Apps", value: "10+" },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { stats } from "@/data/stats";
 
 export function About() {
   const ref = useRef(null);

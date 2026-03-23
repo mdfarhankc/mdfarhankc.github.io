@@ -3,56 +3,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
-
-const skillCategories = [
-  {
-    title: "Backend",
-    skills: [
-      "Python",
-      "Django",
-      "FastAPI",
-      "Flask",
-      "Odoo",
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-    ],
-  },
-  {
-    title: "Frontend & Mobile",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Flutter",
-      "Tailwind CSS",
-      "Bootstrap",
-      "HTML/CSS",
-    ],
-  },
-  {
-    title: "Databases",
-    skills: [
-      "PostgreSQL",
-      "MySQL",
-      "MongoDB",
-      "Redis",
-    ],
-  },
-  {
-    title: "Tools & Integrations",
-    skills: [
-      "Git",
-      "Docker",
-      "Whatsapp Cloud",
-      "Twilio",
-      "Google OCR",
-      "Power BI",
-      "Linux",
-    ],
-  },
-];
+import { skillCategories } from "@/data/skills";
 
 export function Skills() {
   const ref = useRef(null);
@@ -62,7 +13,7 @@ export function Skills() {
     <section id="skills" className="relative px-6 py-32">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-6xl">

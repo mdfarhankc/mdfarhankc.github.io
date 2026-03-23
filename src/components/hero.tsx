@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import { socials } from "@/data/socials";
 
 export function Hero() {

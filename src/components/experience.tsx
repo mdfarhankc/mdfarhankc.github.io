@@ -1,50 +1,12 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { motion, useInView } from "motion/react";
 import { Award, Briefcase, GraduationCap } from "lucide-react";
 
-const experience = [
-  {
-    type: "work" as const,
-    title: "Python Developer",
-    organization: "AST Solutions LLC — Al Qusais, Dubai (Remote)",
-    period: "March 2023 — Present",
-    highlight: "Best Performer — 2025",
-    description:
-      "Led development of Odoo-based ERP modules across departments. Designed RESTful APIs with FastAPI and Django. Optimized PostgreSQL and MongoDB databases. Integrated Flutter apps with backend APIs. Containerized deployments with Docker. Implemented unit testing with Pytest and Odoo's test framework.",
-    tags: [
-      "Python",
-      "FastAPI",
-      "Django",
-      "Odoo",
-      "Flutter",
-      "PostgreSQL",
-      "MongoDB",
-      "Docker",
-    ],
-  },
-  {
-    type: "work" as const,
-    title: "Python Full Stack Developer Intern",
-    organization: "Quest Innovative Solutions — Kannur, Kerala",
-    period: "June 2022 — January 2023",
-    description:
-      "Developed responsive web apps using Django and Flask. Built RESTful APIs with DRF and Flask-RESTful. Enhanced performance through code refactoring and query tuning. Implemented automated tests with pytest. Designed authentication and session management modules.",
-    tags: ["Python", "Django", "Flask", "DRF", "pytest", "MySQL"],
-  },
-  {
-    type: "education" as const,
-    title: "Bachelor of Computer Application",
-    organization: "Jamia Hamdard, Delhi University",
-    period: "2019 — 2022",
-    description:
-      "Studied core computer science fundamentals including data structures, algorithms, database management, and software engineering principles.",
-    tags: ["Computer Science", "BCA"],
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { experiences } from "@/data/experiences";
 
 export function Experience() {
   const ref = useRef(null);
@@ -77,7 +39,7 @@ export function Experience() {
           <div className="absolute left-6 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
 
           <div className="flex flex-col gap-12">
-            {experience.map((item, i) => {
+            {experiences.map((item, i) => {
               const isLeft = i % 2 === 0;
 
               return (

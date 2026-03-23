@@ -1,23 +1,18 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
+import { Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Mail,
-  MapPin,
-  Send,
-  Loader2,
-  CheckCircle2,
-} from "lucide-react";
 import { socials } from "@/data/socials";
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
+    "idle",
   );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -52,7 +47,7 @@ export function Contact() {
     <section id="contact" className="relative px-6 py-32">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-5xl">
@@ -83,7 +78,10 @@ export function Contact() {
           >
             <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm">
               <CardContent className="flex h-full flex-col p-6 sm:p-8">
-                <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-5">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-1 flex-col gap-5"
+                >
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="name"
