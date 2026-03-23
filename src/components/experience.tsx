@@ -4,44 +4,45 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Award, Briefcase, GraduationCap } from "lucide-react";
 
 const experience = [
   {
     type: "work" as const,
     title: "Python Developer",
-    organization: "AST Solutions LLC",
+    organization: "AST Solutions LLC — Al Qusais, Dubai (Remote)",
     period: "March 2023 — Present",
+    highlight: "Best Performer — 2025",
     description:
-      "Building and maintaining full-stack web applications using Python, Django, FastAPI, and Odoo. Developing REST APIs, integrating third-party services, and managing PostgreSQL databases. Working on frontend interfaces with React and Next.js.",
-    tags: ["Python", "Django", "FastAPI", "Odoo", "React", "PostgreSQL"],
+      "Led development of Odoo-based ERP modules across departments. Designed RESTful APIs with FastAPI and Django. Optimized PostgreSQL and MongoDB databases. Integrated Flutter apps with backend APIs. Containerized deployments with Docker. Implemented unit testing with Pytest and Odoo's test framework.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "Django",
+      "Odoo",
+      "Flutter",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+    ],
   },
   {
     type: "work" as const,
-    title: "Python Full Stack Developer",
-    organization: "Quest Innovative Solutions",
+    title: "Python Full Stack Developer Intern",
+    organization: "Quest Innovative Solutions — Kannur, Kerala",
     period: "June 2022 — January 2023",
     description:
-      "Developed end-to-end web applications with Django and Flask backends. Built responsive frontends, designed database schemas, and implemented RESTful APIs for client projects.",
-    tags: ["Python", "Django", "Flask", "JavaScript", "MySQL"],
+      "Developed responsive web apps using Django and Flask. Built RESTful APIs with DRF and Flask-RESTful. Enhanced performance through code refactoring and query tuning. Implemented automated tests with pytest. Designed authentication and session management modules.",
+    tags: ["Python", "Django", "Flask", "DRF", "pytest", "MySQL"],
   },
   {
     type: "education" as const,
     title: "Bachelor of Computer Application",
-    organization: "Jamia Hamdard",
+    organization: "Jamia Hamdard, Delhi University",
     period: "2019 — 2022",
     description:
       "Studied core computer science fundamentals including data structures, algorithms, database management, and software engineering principles.",
     tags: ["Computer Science", "BCA"],
-  },
-  {
-    type: "education" as const,
-    title: "XII — Computer Science",
-    organization: "Nithyananda Bhavan English Medium School",
-    period: "2017 — 2019",
-    description:
-      "Completed higher secondary education with Computer Science as the primary subject, building a strong foundation in programming and logical thinking.",
-    tags: ["Computer Science", "HSE"],
   },
 ];
 
@@ -52,7 +53,7 @@ export function Experience() {
   return (
     <section id="experience" className="relative px-6 py-32">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-1/4 top-1/3 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute right-1/4 top-1/3 h-125 w-125 rounded-full bg-primary/5 blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl">
@@ -99,7 +100,9 @@ export function Experience() {
                   <div className="w-10 shrink-0 md:hidden" />
 
                   {/* Card */}
-                  <div className={`w-full md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-0" : "md:pl-0"}`}>
+                  <div
+                    className={`w-full md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-0" : "md:pl-0"}`}
+                  >
                     <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
                       <CardContent className="p-6">
                         <div className="mb-3 flex items-center gap-2">
@@ -121,6 +124,14 @@ export function Experience() {
                         <p className="mb-3 text-sm font-medium text-primary">
                           {item.organization}
                         </p>
+                        {"highlight" in item && item.highlight && (
+                          <div className="mb-3">
+                            <Badge className="gap-1 bg-amber-500/10 text-amber-500 border-amber-500/20">
+                              <Award className="h-3 w-3" />
+                              {item.highlight}
+                            </Badge>
+                          </div>
+                        )}
                         <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                           {item.description}
                         </p>

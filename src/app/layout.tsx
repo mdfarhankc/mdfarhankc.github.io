@@ -18,7 +18,7 @@ const siteUrl = "https://mdfarhankc.vercel.app";
 export const metadata: Metadata = {
   title: "Farhan — Python Full Stack Developer",
   description:
-    "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications with Django, FastAPI, React, and Next.js.",
+    "Versatile Python Full-Stack Developer with 3+ years of experience building scalable web and mobile applications using Python, FastAPI, Django, Flask, Odoo, React, and Flutter.",
   keywords: [
     "Mohammed Farhan K C",
     "Farhan",

@@ -43,28 +43,31 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I&apos;m Mohammed Farhan K C, a Full Stack Developer from Kannur,
-              India. I specialize in turning ideas into digital reality —
-              crafting tailored solutions that align with your goals and help
-              businesses achieve new heights.
+              I&apos;m Mohammed Farhan K C, a versatile Python Full-Stack
+              Developer from Kannur, India with 3+ years of experience building
+              scalable web and mobile applications. I turn visions into reality
+              with high-quality, end-to-end software solutions.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Currently working as a Python Developer at{" "}
               <span className="font-medium text-foreground">
                 AST Solutions LLC
               </span>{" "}
-              since March 2023. Previously, I worked as a Python Full Stack
-              Developer at{" "}
+              (Dubai, Remote) since March 2023 — recognized as{" "}
+              <span className="font-medium text-primary">
+                Best Performer 2025
+              </span>
+              . Previously interned at{" "}
               <span className="font-medium text-foreground">
                 Quest Innovative Solutions
-              </span>{" "}
-              (June 2022 – January 2023).
+              </span>
+              .
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I hold a Bachelor of Computer Application from Jamia Hamdard. My
-              stack spans Python ecosystems (Django, FastAPI, Flask, Odoo) to
-              modern frontend (React, Next.js, Flutter) and databases
-              (PostgreSQL, MongoDB, MySQL).
+              My stack spans Python ecosystems (Django, FastAPI, Flask, Odoo),
+              frontend &amp; mobile (React, Flutter), databases (PostgreSQL,
+              MongoDB, Redis), and integrations like Whatsapp Cloud, Twilio, and
+              Google Documents OCR. I also publish open-source tools on PyPI.
             </p>
           </motion.div>
 

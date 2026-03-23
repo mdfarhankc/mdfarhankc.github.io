@@ -7,33 +7,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import {
   Mail,
   MapPin,
-  Github,
-  Linkedin,
-  Instagram,
-  Facebook,
   Send,
   Loader2,
   CheckCircle2,
 } from "lucide-react";
-
-const socials = [
-  { icon: Github, href: "https://github.com/mdfarhankc", label: "GitHub" },
-  {
-    icon: Linkedin,
-    href: "https://linkedin.com/in/mdfarhankc",
-    label: "LinkedIn",
-  },
-  {
-    icon: Instagram,
-    href: "https://instagram.com/md_farhankc",
-    label: "Instagram",
-  },
-  {
-    icon: Facebook,
-    href: "https://facebook.com/mdfarhankc",
-    label: "Facebook",
-  },
-];
+import { socials } from "@/data/socials";
 
 export function Contact() {
   const ref = useRef(null);

@@ -2,7 +2,8 @@
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
+import { socials } from "@/data/socials";
 
 export function Hero() {
   return (
@@ -40,7 +41,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          Hi, I&apos;m{" "}
+          {"Hi, I'm "}
           <span
             className="bg-linear-to-r from-primary via-chart-2 to-primary bg-size-[200%_auto] bg-clip-text text-transparent"
             style={{ animation: "gradient-shift 4s ease-in-out infinite" }}
@@ -83,28 +84,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-12 flex items-center justify-center gap-5"
         >
-          {[
-            {
-              icon: Github,
-              href: "https://github.com/mdfarhankc",
-              label: "GitHub",
-            },
-            {
-              icon: Linkedin,
-              href: "https://linkedin.com/in/mdfarhankc",
-              label: "LinkedIn",
-            },
-            {
-              icon: Instagram,
-              href: "https://instagram.com/md_farhankc",
-              label: "Instagram",
-            },
-            {
-              icon: Mail,
-              href: "mailto:kcfarhan123@gmail.com",
-              label: "Email",
-            },
-          ].map(({ icon: Icon, href, label }) => (
+          {socials.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}

@@ -32,14 +32,22 @@ const skillCategories = [
     ],
   },
   {
-    title: "Databases & Tools",
+    title: "Databases",
     skills: [
       "PostgreSQL",
       "MySQL",
       "MongoDB",
-      "SQL",
+      "Redis",
+    ],
+  },
+  {
+    title: "Tools & Integrations",
+    skills: [
       "Git",
       "Docker",
+      "Whatsapp Cloud",
+      "Twilio",
+      "Google OCR",
       "Power BI",
       "Linux",
     ],
@@ -72,7 +80,7 @@ export function Skills() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-12 md:grid-cols-3">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={category.title}
