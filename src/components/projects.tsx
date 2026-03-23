@@ -45,7 +45,7 @@ export function Projects() {
                 <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
                   {/* Gradient header */}
                   <div
-                    className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${project.gradient}`}
+                    className={`relative flex h-48 items-center justify-center bg-linear-to-br ${project.gradient}`}
                   >
                     <div className="text-6xl font-bold text-foreground/10">
                       {project.title.charAt(0)}

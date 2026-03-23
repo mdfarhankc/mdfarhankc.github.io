@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { motion, useInView } from "motion/react";
+
 import { Badge } from "@/components/ui/badge";
 import { skillCategories } from "@/data/skills";
 
