@@ -1,9 +1,18 @@
 import { notFound } from "next/navigation";
-import { getAllProjects, getProjectBySlug } from "@/data/projects";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+
+import {
+  getAllProjects,
+  getProjectBySlug,
+  type Project,
+} from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ProjectTabs } from "@/components/project-tabs";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -12,6 +21,7 @@ import {
   Github,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -21,7 +31,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: PageProps<"/projects/[slug]">
+  props: PageProps<"/projects/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const project = getProjectBySlug(slug);
@@ -34,13 +44,22 @@ export async function generateMetadata(
   };
 }
 
+async function fetchReadme(slug: string): Promise<string | null> {
+  const res = await fetch(
+    `https://raw.githubusercontent.com/mdfarhankc/${slug}/main/README.md`,
+  );
+  return res.ok ? res.text() : null;
+}
+
 export default async function ProjectPage(
-  props: PageProps<"/projects/[slug]">
+  props: PageProps<"/projects/[slug]">,
 ) {
   const { slug } = await props.params;
   const project = getProjectBySlug(slug);
 
   if (!project) notFound();
+
+  const readmeMarkdown = project.showReadme ? await fetchReadme(slug) : null;
 
   return (
     <div className="min-h-screen px-6 pb-20 pt-32">
@@ -55,13 +74,26 @@ export default async function ProjectPage(
         </div>
 
         {/* Header */}
-        <div
-          className={`mb-8 flex h-56 items-center justify-center rounded-2xl bg-gradient-to-br ${project.gradient}`}
-        >
-          <span className="text-8xl font-bold text-foreground/10">
-            {project.title.charAt(0)}
-          </span>
-        </div>
+        {project.image ? (
+          <div className="relative mb-8 h-56 overflow-hidden rounded-2xl border border-border/50 sm:h-72">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className={`mb-8 flex h-56 items-center justify-center rounded-2xl bg-linear-to-br ${project.gradient}`}
+          >
+            <span className="text-8xl font-bold text-foreground/10">
+              {project.title.charAt(0)}
+            </span>
+          </div>
+        )}
 
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <Badge variant="secondary" className="capitalize">
@@ -121,31 +153,34 @@ export default async function ProjectPage(
           <h2 className="mb-4 text-xl font-semibold">Tech Stack</h2>
           <div className="flex flex-wrap gap-3">
             {project.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="px-4 py-2 text-sm"
-              >
+              <Badge key={tag} variant="outline" className="px-4 py-2 text-sm">
                 {tag}
               </Badge>
             ))}
           </div>
         </div>
 
-        {/* Key Highlights */}
-        <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-          <CardContent className="p-6 sm:p-8">
-            <h2 className="mb-6 text-xl font-semibold">Key Highlights</h2>
-            <ul className="space-y-4">
-              {project.highlights.map((highlight, i) => (
-                <li key={i} className="flex gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-muted-foreground">{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+        {/* Highlights / README */}
+        {project.showReadme ? (
+          <ProjectTabs
+            highlights={project.highlights}
+            readme={<ReadmeView markdown={readmeMarkdown} project={project} />}
+          />
+        ) : (
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="mb-6 text-xl font-semibold">Key Highlights</h2>
+              <ul className="space-y-4">
+                {project.highlights.map((highlight, i) => (
+                  <li key={i} className="flex gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-muted-foreground">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Back link */}
         <div className="mt-12 flex justify-center">
@@ -158,5 +193,58 @@ export default async function ProjectPage(
         </div>
       </div>
     </div>
+  );
+}
+
+function ReadmeView({
+  markdown,
+  project,
+}: {
+  markdown: string | null;
+  project: Project;
+}) {
+  if (!markdown) {
+    return (
+      <div className="space-y-3 text-sm text-muted-foreground">
+        <p>README could not be loaded.</p>
+        {project.githubUrl && (
+          <p>
+            View it directly on{" "}
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <article
+      className={[
+        "prose prose-neutral dark:prose-invert max-w-none",
+        "prose-headings:scroll-mt-24",
+        "prose-a:text-primary",
+        "prose-code:rounded prose-code:bg-muted prose-code:px-1 prose-code:py-0.5",
+        "prose-code:before:content-none prose-code:after:content-none",
+        "prose-pre:border prose-pre:border-border/50 prose-pre:bg-muted/50",
+        // Inline images inside paragraphs (badge rows, inline icons)
+        "[&_p_img]:inline-block [&_p_img]:align-middle [&_p_img]:my-0 [&_p_img]:mx-0.5",
+        // Centered paragraphs (HTML <p align="center">)
+        "[&_p[align=center]]:text-center",
+        "[&_h1[align=center]]:text-center [&_h2[align=center]]:text-center [&_h3[align=center]]:text-center",
+        "[&_div[align=center]]:text-center",
+      ].join(" ")}
+    >
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+        {markdown}
+      </ReactMarkdown>
+    </article>
   );
 }

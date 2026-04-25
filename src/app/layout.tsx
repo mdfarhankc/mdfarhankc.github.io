@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 const siteUrl = "https://mdfarhankc.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Farhan — Python Full Stack Developer",
+  title: "Farhan - Python Full Stack Developer",
   description:
     "Versatile Python Full-Stack Developer with 3+ years of experience building scalable web and mobile applications using Python, FastAPI, Django, Flask, Odoo, React, and Flutter.",
   keywords: [
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     "Farhan",
     "Full Stack Developer",
     "Python Developer",
-    "Django",
     "FastAPI",
+    "Django",
     "React",
     "Next.js",
     "Portfolio",

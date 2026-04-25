@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { ArrowRight, Github } from "lucide-react";
 
@@ -43,13 +44,23 @@ export function Projects() {
             >
               <Link href={`/projects/${project.slug}`} className="block h-full">
                 <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-                  {/* Gradient header */}
+                  {/* Image / gradient header */}
                   <div
-                    className={`relative flex h-48 items-center justify-center bg-linear-to-br ${project.gradient}`}
+                    className={`relative flex h-48 items-center justify-center overflow-hidden ${project.image ? "" : `bg-linear-to-br ${project.gradient}`}`}
                   >
-                    <div className="text-6xl font-bold text-foreground/10">
-                      {project.title.charAt(0)}
-                    </div>
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="text-6xl font-bold text-foreground/10">
+                        {project.title.charAt(0)}
+                      </div>
+                    )}
                     {project.githubUrl && (
                       <div className="absolute bottom-3 right-3">
                         <Badge

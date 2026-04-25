@@ -27,9 +27,27 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 flex justify-center"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-600 transition-colors hover:border-emerald-500/50 hover:bg-emerald-500/15 dark:text-emerald-400"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 motion-reduce:hidden" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Available for opportunities
+          </a>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           <p className="mb-4 font-mono text-sm tracking-widest text-primary uppercase">
             Python Full Stack Developer
@@ -57,8 +75,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          Turning passion into pixels — I craft tailored solutions with Python,
-          Django, FastAPI, React, and Next.js that transform ideas into digital
+          Turning passion into pixels - I craft tailored solutions with Python,
+          FastAPI, Django, React, and Next.js that transform ideas into digital
           reality.
         </motion.p>
 
