@@ -97,6 +97,19 @@ export function Hero() {
           </span>
         </motion.h1>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="mb-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-muted-foreground"
+        >
+          <span>3+ years experience</span>
+          <span className="text-primary/40">•</span>
+          <span>3 OSS libs on PyPI</span>
+          <span className="text-primary/40">•</span>
+          <span className="text-amber-500">Best Performer 2025</span>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

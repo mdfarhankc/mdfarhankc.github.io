@@ -37,25 +37,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Farhan — Python Full Stack Developer",
+    title: "Farhan - Python Full Stack Developer",
     description:
-      "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications.",
+      "Portfolio of Mohammed Farhan K C - a Python full-stack developer building robust web applications.",
     siteName: "Farhan's Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Mohammed Farhan K C — Python Full Stack Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Farhan — Python Full Stack Developer",
+    title: "Farhan - Python Full Stack Developer",
     description:
-      "Portfolio of Mohammed Farhan K C — a Python full-stack developer building robust web applications.",
-    images: ["/og-image.png"],
+      "Portfolio of Mohammed Farhan K C - a Python full-stack developer building robust web applications.",
   },
   robots: {
     index: true,
