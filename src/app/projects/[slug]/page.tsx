@@ -47,6 +47,7 @@ export async function generateMetadata(
 async function fetchReadme(slug: string): Promise<string | null> {
   const res = await fetch(
     `https://raw.githubusercontent.com/mdfarhankc/${slug}/main/README.md`,
+    { next: { revalidate: 86400 } },
   );
   return res.ok ? res.text() : null;
 }

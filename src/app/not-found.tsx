@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 export default function NotFound() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Background orbs */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Background orbs (desktop only) */}
+      <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-chart-2/10 blur-[120px]" />
       </div>

@@ -47,7 +47,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative px-6 py-32">
       {/* Background accent */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
       </div>
 

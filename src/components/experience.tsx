@@ -14,7 +14,7 @@ export function Experience() {
 
   return (
     <section id="experience" className="relative px-6 py-32">
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute right-1/4 top-1/3 h-125 w-125 rounded-full bg-primary/5 blur-[150px]" />
       </div>
 
