@@ -1,16 +1,16 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { Award, Briefcase, GraduationCap } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "@/components/section-header";
+import { useFadeInView } from "@/lib/use-fade-in-view";
 import { experiences } from "@/data/experiences";
 
 export function Experience() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { ref, isInView } = useFadeInView();
 
   return (
     <section id="experience" className="relative px-6 py-32">
@@ -19,19 +19,16 @@ export function Experience() {
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-16 text-center"
-        >
-          <p className="mb-2 font-mono text-sm tracking-widest text-primary uppercase">
-            Experience & Education
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            My <span className="text-primary">journey</span>
-          </h2>
-        </motion.div>
+        <SectionHeader
+          eyebrow="Experience & Education"
+          title={
+            <>
+              My <span className="text-primary">journey</span>
+            </>
+          }
+          isInView={isInView}
+          className="mb-16"
+        />
 
         {/* Timeline */}
         <div className="relative">

@@ -1,16 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeader } from "@/components/section-header";
+import { useFadeInView } from "@/lib/use-fade-in-view";
 import { socials } from "@/data/socials";
 
 export function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { ref, isInView } = useFadeInView();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
@@ -51,23 +52,17 @@ export function Contact() {
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-16 text-center"
-        >
-          <p className="mb-2 font-mono text-sm tracking-widest text-primary uppercase">
-            Get In Touch
-          </p>
-          <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Let&apos;s work <span className="text-primary">together</span>
-          </h2>
-          <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-            Have a project in mind or just want to chat? I&apos;m always open to
-            discussing new opportunities and ideas.
-          </p>
-        </motion.div>
+        <SectionHeader
+          eyebrow="Get In Touch"
+          title={
+            <>
+              Let&apos;s work <span className="text-primary">together</span>
+            </>
+          }
+          subtitle="Have a project in mind or just want to chat? I'm always open to discussing new opportunities and ideas."
+          isInView={isInView}
+          className="mb-16"
+        />
 
         <div className="grid items-stretch gap-8 lg:grid-cols-2">
           {/* Contact form */}

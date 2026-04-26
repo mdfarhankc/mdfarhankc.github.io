@@ -1,32 +1,30 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeader } from "@/components/section-header";
+import { useFadeInView } from "@/lib/use-fade-in-view";
 import { stats } from "@/data/stats";
 
 export function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { ref, isInView } = useFadeInView();
 
   return (
     <section id="about" className="relative px-6 py-32">
       <div ref={ref} className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+        <SectionHeader
+          eyebrow="About Me"
+          title={
+            <>
+              Passionate about building{" "}
+              <span className="text-primary">scalable solutions</span>
+            </>
+          }
+          align="left"
+          isInView={isInView}
           className="mb-16"
-        >
-          <p className="mb-2 font-mono text-sm tracking-widest text-primary uppercase">
-            About Me
-          </p>
-          <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Passionate about building{" "}
-            <span className="text-primary">scalable solutions</span>
-          </h2>
-        </motion.div>
+        />
 
         <div className="grid gap-16 lg:grid-cols-2">
           <motion.div
