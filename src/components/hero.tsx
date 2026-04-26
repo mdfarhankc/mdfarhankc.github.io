@@ -1,12 +1,31 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDown, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { socials } from "@/data/socials";
 
+const ROLES = [
+  "Python Full Stack Developer",
+  "FastAPI Specialist",
+  "Open-Source Maintainer",
+  "Odoo ERP Developer",
+];
+
 export function Hero() {
+  const reducedMotion = useReducedMotion();
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    if (reducedMotion) return;
+    const id = setInterval(() => {
+      setRoleIndex((i) => (i + 1) % ROLES.length);
+    }, 2500);
+    return () => clearInterval(id);
+  }, [reducedMotion]);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       {/* Background orbs */}
@@ -48,10 +67,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest text-primary uppercase"
         >
-          <p className="mb-4 font-mono text-sm tracking-widest text-primary uppercase">
-            Python Full Stack Developer
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={ROLES[roleIndex]}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              {ROLES[roleIndex]}
+            </motion.span>
+          </AnimatePresence>
         </motion.div>
 
         <motion.h1
