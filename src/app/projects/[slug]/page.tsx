@@ -76,7 +76,7 @@ export default async function ProjectPage(
 
         {/* Header */}
         <div
-          className={`relative mb-8 flex aspect-[3/1] items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-linear-to-br ${project.gradient}`}
+          className={`relative mb-8 flex aspect-3/1 items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-linear-to-br ${project.gradient}`}
         >
           {project.image ? (
             <Image
