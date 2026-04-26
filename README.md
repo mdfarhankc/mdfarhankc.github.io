@@ -1,4 +1,4 @@
-# Mohammed Farhan K C — Portfolio
+# Mohammed Farhan K C - Portfolio
 
 My personal portfolio website built with modern web technologies.
 

@@ -150,7 +150,7 @@ export function Contact() {
                     {status === "idle" && "Send Message"}
                     {status === "sending" && "Sending..."}
                     {status === "sent" && "Message Sent!"}
-                    {status === "error" && "Failed — Try Again"}
+                    {status === "error" && "Failed - Try Again"}
                   </Button>
                 </form>
               </CardContent>

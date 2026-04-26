@@ -46,7 +46,7 @@ export function Projects() {
                 <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
                   {/* Image / gradient header */}
                   <div
-                    className={`relative flex h-48 items-center justify-center overflow-hidden ${project.image ? "" : `bg-linear-to-br ${project.gradient}`}`}
+                    className={`relative flex aspect-3/1 items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
                   >
                     {project.image ? (
                       <Image

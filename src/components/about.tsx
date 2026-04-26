@@ -46,7 +46,7 @@ export function About() {
               <span className="font-medium text-foreground">
                 AST Solutions LLC
               </span>{" "}
-              (Dubai, Remote) since March 2023 — recognized as{" "}
+              (Dubai, Remote) since March 2023 - recognized as{" "}
               <span className="font-medium text-primary">
                 Best Performer 2025
               </span>

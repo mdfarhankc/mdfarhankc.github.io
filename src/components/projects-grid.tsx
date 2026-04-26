@@ -69,17 +69,10 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.25 }}
             >
-              <Link
-                href={`/projects/${project.slug}`}
-                className="block h-full"
-              >
+              <Link href={`/projects/${project.slug}`} className="block h-full">
                 <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
                   <div
-                    className={`relative flex h-48 items-center justify-center overflow-hidden ${
-                      project.image
-                        ? ""
-                        : `bg-gradient-to-br ${project.gradient}`
-                    }`}
+                    className={`relative flex aspect-3/1 items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
                   >
                     {project.image ? (
                       <Image

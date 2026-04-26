@@ -39,7 +39,7 @@ export async function generateMetadata(
   if (!project) return { title: "Project Not Found" };
 
   return {
-    title: `${project.title} — Farhan`,
+    title: `${project.title} - Farhan`,
     description: project.description,
   };
 }
@@ -74,8 +74,10 @@ export default async function ProjectPage(
         </div>
 
         {/* Header */}
-        {project.image ? (
-          <div className="relative mb-8 h-56 overflow-hidden rounded-2xl border border-border/50 sm:h-72">
+        <div
+          className={`relative mb-8 flex aspect-[3/1] items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-linear-to-br ${project.gradient}`}
+        >
+          {project.image ? (
             <Image
               src={project.image}
               alt={project.title}
@@ -84,16 +86,12 @@ export default async function ProjectPage(
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
             />
-          </div>
-        ) : (
-          <div
-            className={`mb-8 flex h-56 items-center justify-center rounded-2xl bg-linear-to-br ${project.gradient}`}
-          >
+          ) : (
             <span className="text-8xl font-bold text-foreground/10">
               {project.title.charAt(0)}
             </span>
-          </div>
-        )}
+          )}
+        </div>
 
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <Badge variant="secondary" className="capitalize">
