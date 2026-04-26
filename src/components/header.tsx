@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
@@ -21,29 +21,31 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const onScroll = useCallback(() => {
-    setScrolled(window.scrollY > 50);
-
-    const sections = links.map((l) => l.href.replace("#", ""));
-    let current = "";
-
-    for (const id of sections) {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.getBoundingClientRect().top;
-        if (top <= 120) {
-          current = `#${id}`;
-        }
-      }
-    }
-
-    setActiveSection(current);
+  // Header background swap — single cheap scroll listener
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Active-section highlight — IntersectionObserver, no per-scroll DOM reads
   useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+    const observers: IntersectionObserver[] = [];
+    for (const { href } of links) {
+      const el = document.getElementById(href.slice(1));
+      if (!el) continue;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(href);
+        },
+        { rootMargin: "-100px 0px -85% 0px" },
+      );
+      observer.observe(el);
+      observers.push(observer);
+    }
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   return (
     <motion.header
