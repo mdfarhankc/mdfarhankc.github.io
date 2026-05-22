@@ -7,14 +7,12 @@ export const skillCategories: SkillCategory[] = [
     {
         title: "Backend",
         skills: [
+            "FastAPI",
             "Python",
             "Django",
-            "FastAPI",
             "Flask",
-            "Odoo",
-            "Node.js",
-            "Express.js",
             "REST APIs",
+            "Odoo",
         ],
     },
     {
@@ -49,6 +47,15 @@ export const skillCategories: SkillCategory[] = [
             "Google OCR",
             "Power BI",
             "Linux",
+        ],
+    },
+    {
+        title: "Currently Learning",
+        skills: [
+            "Go",
+            "Microservices",
+            "AWS",
+            "Kubernetes",
         ],
     },
 ];

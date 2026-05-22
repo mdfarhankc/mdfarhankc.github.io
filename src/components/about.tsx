@@ -55,10 +55,12 @@ export function About() {
               .
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              My stack spans Python ecosystems (Django, FastAPI, Flask, Odoo),
-              frontend &amp; mobile (React, Flutter), databases (PostgreSQL,
-              MongoDB, Redis), and integrations like Whatsapp Cloud, Twilio, and
-              Google Documents OCR. I also publish open-source tools on PyPI.
+              My core is FastAPI and the broader Python ecosystem (Django,
+              Flask, Odoo), with frontend &amp; mobile (React, Flutter),
+              databases (PostgreSQL, MongoDB, Redis), and integrations like
+              Whatsapp Cloud, Twilio, and Google Documents OCR. I also publish
+              open-source tools on PyPI, and I&apos;m currently picking up Go,
+              microservices, and AWS on the side.
             </p>
           </motion.div>
 

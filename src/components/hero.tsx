@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { socials } from "@/data/socials";
 
 const ROLES = [
-  "Python Full Stack Developer",
   "FastAPI Specialist",
+  "Python Full Stack Developer",
   "Open-Source Maintainer",
-  "Odoo ERP Developer",
+  "Learning Go",
 ];
 
 export function Hero() {

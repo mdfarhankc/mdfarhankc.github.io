@@ -16,16 +16,16 @@ export const experiences: Experience[] = [
         period: "March 2023 - Present",
         highlight: "Best Performer - 2025",
         description:
-            "Led development of Odoo-based ERP modules across departments. Designed RESTful APIs with FastAPI and Django. Optimized PostgreSQL and MongoDB databases. Integrated Flutter apps with backend APIs. Containerized deployments with Docker. Implemented unit testing with Pytest and Odoo's test framework.",
+            "Designed and shipped RESTful APIs with FastAPI and Django, backed by PostgreSQL and MongoDB. Led development of Odoo-based ERP modules across departments. Integrated Flutter apps with backend APIs. Containerized deployments with Docker. Implemented unit testing with Pytest and Odoo's test framework.",
         tags: [
-            "Python",
             "FastAPI",
+            "Python",
             "Django",
-            "Odoo",
-            "Flutter",
             "PostgreSQL",
             "MongoDB",
+            "Flutter",
             "Docker",
+            "Odoo",
         ],
     },
     {
