@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   const projects = getAllProjects();
 
   return (
-    <div className="min-h-screen px-6 pb-20 pt-32">
+    <div className="min-h-screen px-6 pt-32 pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-4">
           <Button variant="ghost" size="sm" asChild>
@@ -27,13 +27,13 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mb-12">
-          <p className="mb-2 font-mono text-sm tracking-widest text-primary uppercase">
+          <p className="text-primary mb-2 font-mono text-sm tracking-widest uppercase">
             All Projects
           </p>
           <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             My <span className="text-primary">work</span>
           </h1>
-          <p className="max-w-2xl text-lg text-muted-foreground">
+          <p className="text-muted-foreground max-w-2xl text-lg">
             A collection of professional projects and personal open-source work.
           </p>
         </div>

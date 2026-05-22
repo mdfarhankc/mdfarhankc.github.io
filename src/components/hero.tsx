@@ -30,8 +30,8 @@ export function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       {/* Background orbs (desktop only — heavy blur is expensive on mobile GPUs) */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-chart-2/10 blur-[120px]" />
+        <div className="bg-primary/10 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
+        <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
       {/* Dot grid */}
@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest text-primary uppercase"
+          className="text-primary mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest uppercase"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -86,11 +86,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="mb-6 text-5xl leading-tight font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
           {"Hi, I'm "}
           <span
-            className="bg-linear-to-r from-primary via-chart-2 to-primary bg-size-[200%_auto] bg-clip-text text-transparent"
+            className="from-primary via-chart-2 to-primary bg-linear-to-r bg-size-[200%_auto] bg-clip-text text-transparent"
             style={{ animation: "gradient-shift 4s ease-in-out infinite" }}
           >
             Farhan
@@ -101,7 +101,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="mb-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-muted-foreground"
+          className="text-muted-foreground mb-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm"
         >
           <span>3+ years experience</span>
           <span className="text-primary/40">•</span>
@@ -114,7 +114,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
+          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg leading-relaxed sm:text-xl"
         >
           Turning passion into pixels - I craft tailored solutions with Python,
           FastAPI, Django, React, and Next.js that transform ideas into digital
@@ -151,7 +151,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="rounded-full border border-border p-3 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg hover:shadow-primary/10"
+              className="border-border text-muted-foreground hover:border-primary/50 hover:text-primary hover:shadow-primary/10 rounded-full border p-3 transition-all hover:shadow-lg"
             >
               <Icon size={20} />
             </a>
@@ -165,7 +165,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground transition-colors hover:text-primary"
+        className="text-muted-foreground hover:text-primary absolute bottom-10 left-1/2 -translate-x-1/2 transition-colors"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

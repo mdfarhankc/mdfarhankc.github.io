@@ -15,7 +15,7 @@ export function Experience() {
   return (
     <section id="experience" className="relative px-6 py-32">
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute right-1/4 top-1/3 h-125 w-125 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="bg-primary/5 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl">
@@ -33,7 +33,7 @@ export function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
+          <div className="bg-border absolute top-0 bottom-0 left-6 w-px md:left-1/2 md:-translate-x-px" />
 
           <div className="flex flex-col gap-12">
             {experiences.map((item, i) => {
@@ -51,8 +51,8 @@ export function Experience() {
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-6 z-10 flex h-3 w-3 -translate-x-1/2 items-center justify-center md:left-1/2">
-                    <div className="h-3 w-3 rounded-full border-2 border-primary bg-background" />
-                    <div className="absolute h-3 w-3 animate-ping rounded-full bg-primary/30" />
+                    <div className="border-primary bg-background h-3 w-3 rounded-full border-2" />
+                    <div className="bg-primary/30 absolute h-3 w-3 animate-ping rounded-full" />
                   </div>
 
                   {/* Spacer for mobile */}
@@ -62,17 +62,17 @@ export function Experience() {
                   <div
                     className={`w-full md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-0" : "md:pl-0"}`}
                   >
-                    <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                    <Card className="border-border/50 bg-card/50 hover:border-primary/30 hover:shadow-primary/5 backdrop-blur-sm transition-all hover:shadow-lg">
                       <CardContent className="p-6">
                         <div className="mb-3 flex items-center gap-2">
-                          <div className="rounded-lg bg-primary/10 p-1.5">
+                          <div className="bg-primary/10 rounded-lg p-1.5">
                             {item.type === "work" ? (
-                              <Briefcase className="h-4 w-4 text-primary" />
+                              <Briefcase className="text-primary h-4 w-4" />
                             ) : (
-                              <GraduationCap className="h-4 w-4 text-primary" />
+                              <GraduationCap className="text-primary h-4 w-4" />
                             )}
                           </div>
-                          <span className="font-mono text-xs text-muted-foreground">
+                          <span className="text-muted-foreground font-mono text-xs">
                             {item.period}
                           </span>
                         </div>
@@ -80,18 +80,18 @@ export function Experience() {
                         <h3 className="mb-1 text-lg font-semibold">
                           {item.title}
                         </h3>
-                        <p className="mb-3 text-sm font-medium text-primary">
+                        <p className="text-primary mb-3 text-sm font-medium">
                           {item.organization}
                         </p>
                         {"highlight" in item && item.highlight && (
                           <div className="mb-3">
-                            <Badge className="gap-1 bg-amber-500/10 text-amber-500 border-amber-500/20">
+                            <Badge className="gap-1 border-amber-500/20 bg-amber-500/10 text-amber-500">
                               <Award className="h-3 w-3" />
                               {item.highlight}
                             </Badge>
                           </div>
                         )}
-                        <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                        <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                           {item.description}
                         </p>
 

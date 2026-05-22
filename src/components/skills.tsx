@@ -14,7 +14,7 @@ export function Skills() {
     <section id="skills" className="relative px-6 py-32">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="bg-primary/5 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-6xl">
@@ -37,7 +37,7 @@ export function Skills() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + catIndex * 0.15 }}
             >
-              <h3 className="mb-6 text-lg font-semibold text-foreground">
+              <h3 className="text-foreground mb-6 text-lg font-semibold">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -53,7 +53,7 @@ export function Skills() {
                   >
                     <Badge
                       variant="outline"
-                      className="cursor-default px-4 py-2 text-sm transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+                      className="hover:border-primary/50 hover:bg-primary/10 hover:text-primary cursor-default px-4 py-2 text-sm transition-all"
                     >
                       {skill}
                     </Badge>

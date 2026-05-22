@@ -44,7 +44,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
               {active && (
                 <motion.span
                   layoutId="filter-bg"
-                  className="absolute inset-0 rounded-full bg-primary/10"
+                  className="bg-primary/10 absolute inset-0 rounded-full"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
@@ -72,7 +72,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
       </motion.div>
 
       {filtered.length === 0 && (
-        <div className="flex justify-center py-16 text-sm text-muted-foreground">
+        <div className="text-muted-foreground flex justify-center py-16 text-sm">
           No projects in this category yet.
         </div>
       )}

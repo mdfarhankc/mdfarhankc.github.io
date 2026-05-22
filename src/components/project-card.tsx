@@ -9,7 +9,7 @@ import type { Project } from "@/data/projects";
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`} className="block h-full">
-      <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+      <Card className="group border-border/50 bg-card/50 hover:border-primary/30 hover:shadow-primary/5 h-full overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
         <div
           className={`relative flex aspect-3/1 items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
         >
@@ -22,11 +22,11 @@ export function ProjectCard({ project }: { project: Project }) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="text-6xl font-bold text-foreground/10">
+            <div className="text-foreground/10 text-6xl font-bold">
               {project.title.charAt(0)}
             </div>
           )}
-          <div className="absolute bottom-3 right-3 flex gap-2">
+          <div className="absolute right-3 bottom-3 flex gap-2">
             {project.githubUrl && (
               <Badge
                 variant="secondary"
@@ -46,10 +46,10 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <CardContent className="space-y-4 p-6">
-          <h3 className="text-xl font-semibold transition-colors group-hover:text-primary">
+          <h3 className="group-hover:text-primary text-xl font-semibold transition-colors">
             {project.title}
           </h3>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">

@@ -48,7 +48,7 @@ export function Contact() {
     <section id="contact" className="relative px-6 py-32">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="bg-primary/5 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-5xl">
@@ -71,7 +71,7 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm">
+            <Card className="border-border/50 bg-card/50 h-full backdrop-blur-sm">
               <CardContent className="flex h-full flex-col p-6 sm:p-8">
                 <form
                   onSubmit={handleSubmit}
@@ -80,7 +80,7 @@ export function Contact() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="name"
-                      className="text-sm font-medium text-foreground"
+                      className="text-foreground text-sm font-medium"
                     >
                       Name
                     </label>
@@ -90,14 +90,14 @@ export function Contact() {
                       type="text"
                       required
                       placeholder="Your name"
-                      className="rounded-lg border border-border bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="border-border bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20 rounded-lg border px-4 py-2.5 text-sm transition-all focus:ring-2 focus:outline-none"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="email"
-                      className="text-sm font-medium text-foreground"
+                      className="text-foreground text-sm font-medium"
                     >
                       Email
                     </label>
@@ -107,14 +107,14 @@ export function Contact() {
                       type="email"
                       required
                       placeholder="your@email.com"
-                      className="rounded-lg border border-border bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="border-border bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20 rounded-lg border px-4 py-2.5 text-sm transition-all focus:ring-2 focus:outline-none"
                     />
                   </div>
 
                   <div className="flex flex-1 flex-col gap-2">
                     <label
                       htmlFor="message"
-                      className="text-sm font-medium text-foreground"
+                      className="text-foreground text-sm font-medium"
                     >
                       Message
                     </label>
@@ -124,7 +124,7 @@ export function Contact() {
                       required
                       rows={4}
                       placeholder="Tell me about your project..."
-                      className="flex-1 resize-none rounded-lg border border-border bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="border-border bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20 flex-1 resize-none rounded-lg border px-4 py-2.5 text-sm transition-all focus:ring-2 focus:outline-none"
                     />
                   </div>
 
@@ -165,17 +165,17 @@ export function Contact() {
 
                 <a
                   href="mailto:kcfarhan123@gmail.com"
-                  className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground flex items-center gap-3 transition-colors"
                 >
-                  <div className="rounded-lg bg-primary/10 p-2.5">
-                    <Mail className="h-4 w-4 text-primary" />
+                  <div className="bg-primary/10 rounded-lg p-2.5">
+                    <Mail className="text-primary h-4 w-4" />
                   </div>
                   <span className="text-sm">kcfarhan123@gmail.com</span>
                 </a>
 
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <div className="rounded-lg bg-primary/10 p-2.5">
-                    <MapPin className="h-4 w-4 text-primary" />
+                <div className="text-muted-foreground flex items-center gap-3">
+                  <div className="bg-primary/10 rounded-lg p-2.5">
+                    <MapPin className="text-primary h-4 w-4" />
                   </div>
                   <span className="text-sm">Kannur, India</span>
                 </div>
@@ -193,7 +193,7 @@ export function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+                      className="border-border text-muted-foreground hover:border-primary/50 hover:text-primary flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-all"
                     >
                       <Icon size={16} />
                       {label}

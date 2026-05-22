@@ -52,9 +52,9 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-md border-b border-border shadow-md shadow-black/5"
+          ? "bg-background/70 border-border border-b shadow-md shadow-black/5 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -77,7 +77,7 @@ export function Header() {
                 {activeSection === link.href && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
+                    className="bg-primary absolute right-0 -bottom-1 left-0 h-0.5 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -114,7 +114,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-xl md:hidden"
+            className="border-border bg-background/95 overflow-hidden border-b backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-4 px-6 py-6">
               {links.map((link) => (

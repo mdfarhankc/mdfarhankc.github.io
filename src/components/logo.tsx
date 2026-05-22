@@ -2,7 +2,7 @@ export default function Logo() {
   return (
     <a
       href="#"
-      className="text-xl font-bold tracking-tight bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"
+      className="from-primary to-chart-2 bg-linear-to-r bg-clip-text text-xl font-bold tracking-tight text-transparent"
     >
       FKC.
     </a>

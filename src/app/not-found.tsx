@@ -8,20 +8,20 @@ export default function NotFound() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       {/* Background orbs (desktop only) */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
-        <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-chart-2/10 blur-[120px]" />
+        <div className="bg-primary/10 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
+        <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-2xl text-center">
-        <p className="mb-4 font-mono text-sm tracking-widest text-primary uppercase">
+        <p className="text-primary mb-4 font-mono text-sm tracking-widest uppercase">
           Error 404
         </p>
-        <h1 className="mb-6 text-7xl font-bold leading-tight tracking-tight sm:text-8xl md:text-9xl">
-          <span className="bg-linear-to-r from-primary via-chart-2 to-primary bg-clip-text text-transparent">
+        <h1 className="mb-6 text-7xl leading-tight font-bold tracking-tight sm:text-8xl md:text-9xl">
+          <span className="from-primary via-chart-2 to-primary bg-linear-to-r bg-clip-text text-transparent">
             Lost in space
           </span>
         </h1>
-        <p className="mx-auto mb-10 max-w-md text-lg text-muted-foreground">
+        <p className="text-muted-foreground mx-auto mb-10 max-w-md text-lg">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

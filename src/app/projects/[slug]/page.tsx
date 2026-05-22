@@ -63,7 +63,7 @@ export default async function ProjectPage(
   const readmeMarkdown = project.showReadme ? await fetchReadme(slug) : null;
 
   return (
-    <div className="min-h-screen px-6 pb-20 pt-32">
+    <div className="min-h-screen px-6 pt-32 pb-20">
       <div className="mx-auto max-w-4xl">
         <div className="mb-8">
           <Button variant="ghost" size="sm" asChild>
@@ -76,7 +76,7 @@ export default async function ProjectPage(
 
         {/* Header */}
         <div
-          className={`relative mb-8 flex aspect-3/1 items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-linear-to-br ${project.gradient}`}
+          className={`border-border/50 relative mb-8 flex aspect-3/1 items-center justify-center overflow-hidden rounded-2xl border bg-linear-to-br ${project.gradient}`}
         >
           {project.image ? (
             <Image
@@ -88,7 +88,7 @@ export default async function ProjectPage(
               className="object-cover"
             />
           ) : (
-            <span className="text-8xl font-bold text-foreground/10">
+            <span className="text-foreground/10 text-8xl font-bold">
               {project.title.charAt(0)}
             </span>
           )}
@@ -110,7 +110,7 @@ export default async function ProjectPage(
           {project.title}
         </h1>
 
-        <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
+        <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
           {project.longDescription}
         </p>
 
@@ -172,7 +172,7 @@ export default async function ProjectPage(
               <ul className="space-y-4">
                 {project.highlights.map((highlight, i) => (
                   <li key={i} className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <CheckCircle2 className="text-primary mt-0.5 h-5 w-5 shrink-0" />
                     <span className="text-muted-foreground">{highlight}</span>
                   </li>
                 ))}
@@ -204,7 +204,7 @@ function ReadmeView({
 }) {
   if (!markdown) {
     return (
-      <div className="space-y-3 text-sm text-muted-foreground">
+      <div className="text-muted-foreground space-y-3 text-sm">
         <p>README could not be loaded.</p>
         {project.githubUrl && (
           <p>
@@ -234,7 +234,7 @@ function ReadmeView({
         "prose-code:before:content-none prose-code:after:content-none",
         "prose-pre:border prose-pre:border-border/50 prose-pre:bg-muted/50",
         // Inline images inside paragraphs (badge rows, inline icons)
-        "[&_p_img]:inline-block [&_p_img]:align-middle [&_p_img]:my-0 [&_p_img]:mx-0.5",
+        "[&_p_img]:mx-0.5 [&_p_img]:my-0 [&_p_img]:inline-block [&_p_img]:align-middle",
         // Centered paragraphs (HTML <p align="center">)
         "[&_p[align=center]]:text-center",
         "[&_h1[align=center]]:text-center [&_h2[align=center]]:text-center [&_h3[align=center]]:text-center",

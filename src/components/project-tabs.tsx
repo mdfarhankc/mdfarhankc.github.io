@@ -3,12 +3,7 @@
 import { CheckCircle2, FileText, Sparkles } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface ProjectTabsProps {
   highlights: string[];
@@ -35,7 +30,7 @@ export function ProjectTabs({ highlights, readme }: ProjectTabsProps) {
             <ul className="space-y-4">
               {highlights.map((highlight, i) => (
                 <li key={i} className="flex gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <CheckCircle2 className="text-primary mt-0.5 h-5 w-5 shrink-0" />
                   <span className="text-muted-foreground">{highlight}</span>
                 </li>
               ))}
