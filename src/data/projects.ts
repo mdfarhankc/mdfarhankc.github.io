@@ -10,7 +10,6 @@ export interface Project {
   featured: boolean;
   type: "professional" | "personal";
   highlights: string[];
-  showReadme?: boolean;
   image?: string;
 }
 
@@ -50,7 +49,6 @@ export const projects: Project[] = [
       "Six typed event hooks (after_register, after_login, after_oauth_register/login, send_verification_email, send_password_reset_email) plus a constructor-level custom JWT-claims builder, modular routers (auth, profile, verify, admin, oauth, passkey), CSRF middleware, security-headers middleware, and 49 environment-configurable settings driven by Pydantic BaseSettings with FULLAUTH_ env prefix",
       "Distributed on PyPI with MkDocs documentation, 188 async pytest tests, multi-version CI on Python 3.10–3.14, OIDC-based PyPI publishing (no stored secrets), and a bundled in-wheel LLM agent skill (SKILL.md plus 12 reference files) so AI coding assistants apply the library's composable-opt-in conventions automatically",
     ],
-    showReadme: true,
     // image: "/projects/fastapi-fullauth.png",
   },
   {
@@ -88,7 +86,6 @@ export const projects: Project[] = [
       "Custom section ordering and renamed headings via JSON, JSON Schema shipped at the repo root for $schema editor autocomplete in VS Code/IntelliJ, and an _version metadata key on init templates for tracking which library version produced the file",
       "Published on PyPI with full type hints (py.typed), mypy --strict clean, ruff-linted, 100+ pytest tests at 94% coverage, CI across Python 3.10–3.14 on Linux and Windows, Dependabot for dependency updates, and Codecov for coverage reporting",
     ],
-    showReadme: true,
   },
   {
     slug: "d2d-water-distribution",
@@ -151,7 +148,6 @@ export const projects: Project[] = [
       "OpenAPI 3.0 generation with interactive Swagger UI at /docs",
       "Published on PyPI with modern packaging standards (pyproject.toml)",
     ],
-    showReadme: true,
   },
   {
     slug: "ChatSeekAI",
@@ -173,7 +169,6 @@ export const projects: Project[] = [
       "WebSocket-based streaming and modular API design",
       "Deployed via Docker Compose for reproducible and scalable environments",
     ],
-    showReadme: true,
   },
 ];
 

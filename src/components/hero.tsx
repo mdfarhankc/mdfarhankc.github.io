@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDown, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { socials } from "@/data/socials";
+import { highlights } from "@/data/stats";
 
 const ROLES = [
   "FastAPI Specialist",
   "Python Full Stack Developer",
   "Open-Source Maintainer",
-  "Learning Go",
+  "Backend Engineer",
 ];
 
 export function Hero() {
@@ -39,7 +40,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
           backgroundImage:
-            "radial-gradient(circle, oklch(1 0 0 / 0.07) 1px, transparent 1px)",
+            "radial-gradient(circle, color-mix(in oklch, var(--foreground) 7%, transparent) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -68,6 +69,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-primary mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest uppercase"
+          aria-hidden="true"
         >
           <AnimatePresence mode="wait">
             <motion.span
@@ -81,6 +83,7 @@ export function Hero() {
             </motion.span>
           </AnimatePresence>
         </motion.div>
+        <span className="sr-only">{ROLES[0]}</span>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -103,11 +106,18 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-muted-foreground mb-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm"
         >
-          <span>3+ years experience</span>
-          <span className="text-primary/40">•</span>
-          <span>3 OSS libs on PyPI</span>
-          <span className="text-primary/40">•</span>
-          <span className="text-amber-500">Best Performer 2025</span>
+          {highlights.map((item, i) => (
+            <Fragment key={item.label}>
+              {i > 0 && <span className="text-primary/40">•</span>}
+              <span
+                className={
+                  item.emphasis ? "text-primary font-medium" : undefined
+                }
+              >
+                {item.label}
+              </span>
+            </Fragment>
+          ))}
         </motion.div>
 
         <motion.p

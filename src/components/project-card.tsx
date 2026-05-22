@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Github } from "lucide-react";
+
+import { GithubIcon } from "@/components/icons/brand-icons";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 variant="secondary"
                 className="gap-1 text-xs opacity-70 transition-opacity group-hover:opacity-100"
               >
-                <Github className="h-3 w-3" />
+                <GithubIcon className="h-3 w-3" />
                 Open Source
               </Badge>
             )}

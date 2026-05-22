@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 import { getAllProjects } from "@/data/projects";
 
+export const dynamic = "force-static";
+
 const siteUrl = "https://mdfarhankc.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
