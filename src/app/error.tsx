@@ -20,8 +20,8 @@ export default function Error({ reset }: { reset: () => void }) {
       />
       {/* Subtle nebula glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-white/[0.03] blur-[120px]" />
-        <div className="absolute right-1/3 bottom-1/3 h-64 w-64 rounded-full bg-white/[0.02] blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-white/3 blur-[120px]" />
+        <div className="absolute right-1/3 bottom-1/3 h-64 w-64 rounded-full bg-white/2 blur-[100px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-2xl text-center">
