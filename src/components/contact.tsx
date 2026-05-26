@@ -56,10 +56,16 @@ export function Contact() {
           eyebrow="Get In Touch"
           title={
             <>
-              Let&apos;s work <span className="text-primary">together</span>
+              Let&apos;s launch something{" "}
+              <span
+                className="from-foreground/60 via-foreground to-foreground/60 bg-linear-to-r bg-size-[200%_auto] bg-clip-text text-transparent"
+                style={{ animation: "shimmer 3s ease-in-out infinite" }}
+              >
+                great
+              </span>
             </>
           }
-          subtitle="Have a project in mind or just want to chat? I'm always open to discussing new opportunities and ideas."
+          subtitle="Every great mission starts with a conversation. Let's start ours."
           isInView={isInView}
           className="mb-16"
         />

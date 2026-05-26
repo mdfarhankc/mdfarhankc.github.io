@@ -13,9 +13,25 @@ export function Experience() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="experience" className="relative px-6 py-32">
+    <section id="experience" className="relative overflow-hidden px-6 py-32">
       <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="bg-primary/5 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
+      </div>
+
+      {/* Shooting stars */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="absolute top-[15%] left-[10%] h-px w-32 bg-gradient-to-r from-foreground/40 to-transparent"
+          style={{ animation: "shooting-star 3s ease-out 0s infinite" }}
+        />
+        <div
+          className="absolute top-[35%] left-[55%] h-px w-24 bg-gradient-to-r from-foreground/30 to-transparent"
+          style={{ animation: "shooting-star 3s ease-out 5s infinite" }}
+        />
+        <div
+          className="absolute top-[8%] left-[70%] h-px w-20 bg-gradient-to-r from-foreground/25 to-transparent"
+          style={{ animation: "shooting-star 3s ease-out 9s infinite" }}
+        />
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl">

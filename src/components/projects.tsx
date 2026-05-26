@@ -16,8 +16,19 @@ export function Projects() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="projects" className="relative px-6 py-32">
-      <div ref={ref} className="mx-auto max-w-6xl">
+    <section id="projects" className="relative overflow-hidden px-6 py-32">
+      {/* Drifting stars */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-15 dark:opacity-30"
+        style={{
+          backgroundImage:
+            "radial-gradient(1px 1px at 20% 30%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 60% 10%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 40% 80%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 75% 50%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 10% 65%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 85% 85%, currentColor 50%, transparent 100%)",
+          backgroundSize: "400px 400px",
+          animation: "drift 90s linear infinite",
+        }}
+      />
+
+      <div ref={ref} className="relative mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="Featured Work"
           title={

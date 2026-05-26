@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowDown, Download } from "lucide-react";
+import { Download, Rocket } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { socials } from "@/data/socials";
@@ -35,13 +35,14 @@ export function Hero() {
         <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
-      {/* Dot grid */}
+      {/* Stars */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="pointer-events-none absolute inset-0 opacity-20 dark:opacity-40"
         style={{
           backgroundImage:
-            "radial-gradient(circle, color-mix(in oklch, var(--foreground) 7%, transparent) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+            "radial-gradient(1px 1px at 10% 20%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 30% 65%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 55% 15%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 70% 75%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 85% 35%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 85%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 20% 50%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 90% 10%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 5% 80%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 60% 45%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 75% 55%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 35% 35%, currentColor 50%, transparent 100%)",
+          backgroundSize: "300px 300px",
+          animation: "drift 80s linear infinite",
         }}
       />
 
@@ -89,7 +90,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mb-6 text-5xl leading-tight font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="mb-6 text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
         >
           {"Hi, I'm "}
           <span
@@ -124,7 +125,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg leading-relaxed font-medium sm:text-xl"
+          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-base leading-relaxed font-medium sm:text-lg"
         >
           I architect scalable backends with Python and FastAPI, and pair them
           with polished React frontends - complete products, not just features.
@@ -136,12 +137,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <Button size="lg" className="px-8" asChild>
+          <Button size="default" className="px-6 sm:px-8" asChild>
             <a href="#projects">View My Work</a>
           </Button>
-          <Button size="lg" variant="outline" className="px-8" asChild>
+          <Button size="default" variant="outline" className="px-6 sm:px-8" asChild>
             <a href="/resume.pdf" download>
-              <Download className="mr-2 h-4 w-4" />
+              <Download className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
               Download CV
             </a>
           </Button>
@@ -151,7 +152,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 flex items-center justify-center gap-5"
+          className="mt-10 flex items-center justify-center gap-4 sm:mt-12 sm:gap-5"
         >
           {socials.map(({ icon: Icon, href, label }) => (
             <a
@@ -160,9 +161,9 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="border-border text-muted-foreground hover:border-primary/50 hover:text-primary hover:shadow-primary/10 rounded-full border p-3 transition-all hover:shadow-lg"
+              className="border-border text-muted-foreground hover:border-primary/50 hover:text-primary hover:shadow-primary/10 rounded-full border p-2.5 transition-all hover:shadow-lg sm:p-3"
             >
-              <Icon size={20} />
+              <Icon size={18} className="sm:h-5 sm:w-5" />
             </a>
           ))}
         </motion.div>
@@ -180,7 +181,7 @@ export function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowDown size={24} />
+          <Rocket size={20} className="rotate-180" />
         </motion.div>
       </motion.a>
     </section>

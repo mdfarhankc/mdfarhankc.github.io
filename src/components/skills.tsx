@@ -11,11 +11,21 @@ export function Skills() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="skills" className="relative px-6 py-32">
+    <section id="skills" className="relative overflow-hidden px-6 py-32">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="bg-primary/5 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
       </div>
+
+      {/* Twinkling stars */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(1px 1px at 15% 25%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 70%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 80% 15%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 65% 55%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 30% 45%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 90% 80%, currentColor 50%, transparent 100%)",
+          animation: "twinkle 4s ease-in-out infinite",
+        }}
+      />
 
       <div ref={ref} className="relative mx-auto max-w-6xl">
         <SectionHeader
