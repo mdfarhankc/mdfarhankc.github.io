@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://mdfarhankc.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export const metadata: Metadata = {
   title: "Farhan - Python Full Stack Developer",
@@ -65,6 +66,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="manifest" href="/site.webmanifest" />
+        <JsonLd />
+      </head>
       <body className="flex min-h-full flex-col">
         <ThemeProvider
           attribute="class"

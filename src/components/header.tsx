@@ -21,7 +21,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  // Header background swap — single cheap scroll listener
+  // Header background swap - single cheap scroll listener
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -29,7 +29,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active-section highlight — IntersectionObserver, no per-scroll DOM reads
+  // Active-section highlight - IntersectionObserver, no per-scroll DOM reads
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     for (const { href } of links) {

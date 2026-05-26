@@ -5,7 +5,7 @@ import { GithubIcon } from "@/components/icons/brand-icons";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (

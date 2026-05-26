@@ -4,7 +4,7 @@ import { getAllProjects } from "@/data/projects";
 
 export const dynamic = "force-static";
 
-const siteUrl = "https://mdfarhankc.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

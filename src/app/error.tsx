@@ -1,9 +1,11 @@
+"use client";
+
+import { Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
-import { ArrowLeft, Home } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-export default function NotFound() {
+export default function Error({ reset }: { reset: () => void }) {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6">
       {/* Stars */}
@@ -24,30 +26,28 @@ export default function NotFound() {
 
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="mb-4 font-mono text-sm tracking-widest text-white/60 uppercase">
-          Error 404
+          Something went wrong
         </p>
         <h1 className="mb-6 text-7xl leading-tight font-bold tracking-tight sm:text-8xl md:text-9xl">
           <span
             className="bg-linear-to-r from-white/50 via-white to-white/50 bg-size-[200%_auto] bg-clip-text text-transparent"
             style={{ animation: "shimmer 3s ease-in-out infinite" }}
           >
-            Lost in space
+            Mission failed
           </span>
         </h1>
         <p className="mx-auto mb-10 max-w-md text-lg text-white/40">
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+          An unexpected error occurred. Try again or head back home.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button size="lg" className="px-8" asChild>
+          <Button size="lg" className="px-8" onClick={reset}>
+            <RotateCcw className="mr-2 h-4 w-4" />
+            Try Again
+          </Button>
+          <Button size="lg" variant="outline" className="px-8" asChild>
             <Link href="/">
               <Home className="mr-2 h-4 w-4" />
               Back Home
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" className="px-8" asChild>
-            <Link href="/projects">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              View Projects
             </Link>
           </Button>
         </div>

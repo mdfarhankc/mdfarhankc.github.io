@@ -1,7 +1,4 @@
-interface SkillCategory {
-  title: string;
-  skills: string[];
-}
+import { SkillCategory } from "@/types";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -17,7 +14,6 @@ export const skillCategories: SkillCategory[] = [
       "JavaScript",
       "Flutter",
       "Tailwind CSS",
-      "Bootstrap",
       "HTML/CSS",
     ],
   },
@@ -34,7 +30,6 @@ export const skillCategories: SkillCategory[] = [
       "Twilio",
       "Google OCR",
       "Power BI",
-      "Linux",
     ],
   },
   {

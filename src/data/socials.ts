@@ -1,4 +1,3 @@
-import type { ComponentType } from "react";
 import { Mail } from "lucide-react";
 
 import {
@@ -7,14 +6,7 @@ import {
   InstagramIcon,
   LinkedinIcon,
 } from "@/components/icons/brand-icons";
-
-type SocialIcon = ComponentType<{ size?: number; className?: string }>;
-
-export interface Social {
-  icon: SocialIcon;
-  href: string;
-  label: string;
-}
+import { Social } from "@/types";
 
 export const socials: Social[] = [
   {

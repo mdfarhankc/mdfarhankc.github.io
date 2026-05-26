@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 import { ProjectCard } from "@/components/project-card";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/types";
 
 type Filter = "all" | "professional" | "personal" | "open-source";
 

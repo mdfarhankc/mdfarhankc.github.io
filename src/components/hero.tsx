@@ -29,7 +29,7 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Background orbs (desktop only — heavy blur is expensive on mobile GPUs) */}
+      {/* Background orbs (desktop only - heavy blur is expensive on mobile GPUs) */}
       <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="bg-primary/10 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
         <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
@@ -124,11 +124,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg leading-relaxed sm:text-xl"
+          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg leading-relaxed font-medium sm:text-xl"
         >
-          Turning passion into pixels - I craft tailored solutions with Python,
-          FastAPI, Django, React, and Next.js that transform ideas into digital
-          reality.
+          I architect scalable backends with Python and FastAPI, and pair them
+          with polished React frontends - complete products, not just features.
         </motion.p>
 
         <motion.div
