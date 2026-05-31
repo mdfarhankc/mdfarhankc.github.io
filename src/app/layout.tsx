@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { JsonLd } from "@/components/json-ld";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { BackToTop } from "@/components/back-to-top";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,16 +38,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Farhan - Python Full Stack Developer",
+    title: "Mohammed Farhan K C - Python Full Stack Developer & FastAPI Specialist",
     description:
-      "Portfolio of Mohammed Farhan K C - a Python full-stack developer building robust web applications.",
+      "Python Full-Stack Developer with 3+ years of experience building scalable web and mobile apps with FastAPI, Django, React, Next.js, and Flutter. Open-source maintainer on PyPI.",
     siteName: "Farhan's Portfolio",
+    images: [
+      {
+        url: `${siteUrl}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: "Mohammed Farhan K C - Python Full Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Farhan - Python Full Stack Developer",
+    title: "Mohammed Farhan K C - Python Full Stack Developer & FastAPI Specialist",
     description:
-      "Portfolio of Mohammed Farhan K C - a Python full-stack developer building robust web applications.",
+      "Python Full-Stack Developer with 3+ years of experience building scalable web and mobile apps with FastAPI, Django, React, Next.js, and Flutter. Open-source maintainer on PyPI.",
+    images: [`${siteUrl}/og.png`],
   },
   robots: {
     index: true,
@@ -84,10 +90,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
           {children}
-          <Footer />
-          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

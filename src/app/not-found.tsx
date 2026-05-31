@@ -24,15 +24,6 @@ export default function NotFound() {
         className="pointer-events-none absolute top-[18%] left-[12%] hidden h-px w-32 bg-gradient-to-r from-white/70 to-transparent dark:block"
         style={{ animation: "shooting-star-slow 11s ease-out infinite" }}
       />
-      {/* Subtle nebula glow (dark mode only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-      >
-        <div className="bg-foreground/5 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
-        <div className="bg-foreground/5 absolute right-1/3 bottom-1/3 h-64 w-64 rounded-full blur-[100px]" />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="text-muted-foreground mb-4 font-mono text-sm tracking-widest uppercase">
           Error 404
