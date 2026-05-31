@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   const projects = getAllProjects();
 
   return (
-    <div className="min-h-screen px-6 pt-32 pb-20">
+    <main id="main-content" className="min-h-screen px-6 pt-32 pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-4">
           <Button variant="ghost" size="sm" asChild>
@@ -40,6 +40,6 @@ export default function ProjectsPage() {
 
         <ProjectsGrid projects={projects} />
       </div>
-    </div>
+    </main>
   );
 }

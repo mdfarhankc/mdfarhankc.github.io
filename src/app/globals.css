@@ -70,6 +70,25 @@ html {
   }
 }
 
+@keyframes shooting-star-slow {
+  0% {
+    transform: translateX(0) translateY(0) rotate(215deg) scaleX(0);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(215deg) scaleX(1);
+  }
+  10% {
+    transform: translateX(400px) translateY(200px) rotate(215deg) scaleX(1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(400px) translateY(200px) rotate(215deg) scaleX(0);
+    opacity: 0;
+  }
+}
+
 @keyframes twinkle {
   0%,
   100% {
@@ -97,6 +116,11 @@ html {
   50% {
     background-position: 200% center;
   }
+}
+
+.shimmer-text {
+  animation: shimmer 6s ease-in-out infinite;
+  will-change: background-position;
 }
 
 @keyframes gradient-shift {
@@ -146,6 +170,27 @@ html {
   html {
     @apply font-sans;
   }
+  :focus-visible {
+    @apply outline-ring rounded-sm outline-2 outline-offset-2;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
 }
 
 :root {

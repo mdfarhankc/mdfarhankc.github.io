@@ -19,6 +19,7 @@ export function Projects() {
     <section id="projects" className="relative overflow-hidden px-6 py-32">
       {/* Drifting stars */}
       <div
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-15 dark:opacity-30"
         style={{
           backgroundImage:

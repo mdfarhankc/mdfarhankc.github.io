@@ -14,12 +14,18 @@ export function Experience() {
 
   return (
     <section id="experience" className="relative overflow-hidden px-6 py-32">
-      <div className="pointer-events-none absolute inset-0 hidden md:block">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden dark:md:block"
+      >
         <div className="bg-primary/5 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
       </div>
 
       {/* Shooting stars */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden overflow-hidden dark:block"
+      >
         <div
           className="absolute top-[15%] left-[10%] h-px w-32 bg-gradient-to-r from-foreground/40 to-transparent"
           style={{ animation: "shooting-star 3s ease-out 0s infinite" }}

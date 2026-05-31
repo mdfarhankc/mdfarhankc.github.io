@@ -64,6 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
@@ -71,6 +72,9 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="flex min-h-full flex-col">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

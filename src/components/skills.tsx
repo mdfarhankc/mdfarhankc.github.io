@@ -12,13 +12,17 @@ export function Skills() {
 
   return (
     <section id="skills" className="relative overflow-hidden px-6 py-32">
-      {/* Background accent */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block">
+      {/* Background accent (dark mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden dark:md:block"
+      >
         <div className="bg-primary/5 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
       </div>
 
       {/* Twinkling stars */}
       <div
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:

@@ -29,21 +29,32 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Background orbs (desktop only - heavy blur is expensive on mobile GPUs) */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block">
+      {/* Background orbs (dark mode + desktop only - heavy blur is expensive on mobile GPUs) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden dark:md:block"
+      >
         <div className="bg-primary/10 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
         <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
-      {/* Stars */}
+      {/* Stars - night only */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-20 dark:opacity-40"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden opacity-40 dark:block"
         style={{
           backgroundImage:
-            "radial-gradient(1px 1px at 10% 20%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 30% 65%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 55% 15%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 70% 75%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 85% 35%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 85%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 20% 50%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 90% 10%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 5% 80%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 60% 45%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 75% 55%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 35% 35%, currentColor 50%, transparent 100%)",
-          backgroundSize: "300px 300px",
+            "radial-gradient(1px 1px at 15% 25%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 75% 65%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 15%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 85% 85%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 25% 75%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 60% 40%, currentColor 50%, transparent 100%)",
+          backgroundSize: "400px 400px",
           animation: "drift 80s linear infinite",
         }}
+      />
+
+      {/* Shooting star - night only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[20%] left-[15%] hidden h-px w-32 bg-gradient-to-r from-foreground/60 to-transparent dark:block"
+        style={{ animation: "shooting-star-slow 12s ease-out infinite" }}
       />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
