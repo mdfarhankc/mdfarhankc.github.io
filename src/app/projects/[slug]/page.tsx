@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 
-import { getAllProjects, getProjectBySlug } from "@/data/projects";
+import {
+  PROJECT_KIND_LABEL,
+  PROJECT_OWNERSHIP_LABEL,
+  getAllProjects,
+  getProjectBySlug,
+} from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -51,8 +56,11 @@ export default async function ProjectPage(
         {/* Title block */}
         <div className="mb-10">
           <div className="mb-4 flex flex-wrap items-center gap-3">
-            <Badge variant="secondary" className="capitalize">
-              {project.type}
+            <Badge variant="secondary">
+              {PROJECT_KIND_LABEL[project.kind]}
+            </Badge>
+            <Badge variant="outline">
+              {PROJECT_OWNERSHIP_LABEL[project.ownership]}
             </Badge>
             {project.githubUrl && (
               <Badge variant="outline" className="gap-1">

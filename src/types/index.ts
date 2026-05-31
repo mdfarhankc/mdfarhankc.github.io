@@ -11,6 +11,9 @@ export interface Experience {
   tags: string[];
 }
 
+export type ProjectKind = "fullstack" | "frontend" | "backend" | "library";
+export type ProjectOwnership = "personal" | "professional";
+
 export interface Project {
   slug: string;
   title: string;
@@ -21,7 +24,8 @@ export interface Project {
   githubUrl: string | null;
   liveUrl: string | null;
   featured: boolean;
-  type: "professional" | "personal";
+  kind: ProjectKind;
+  ownership: ProjectOwnership;
   highlights: string[];
   image?: string;
 }

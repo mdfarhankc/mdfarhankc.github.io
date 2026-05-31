@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { JsonLd } from "@/components/json-ld";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { BackToTop } from "@/components/back-to-top";
 import "./globals.css";
 
 const inter = Inter({
@@ -81,7 +84,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           {children}
+          <Footer />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

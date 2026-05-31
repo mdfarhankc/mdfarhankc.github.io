@@ -5,6 +5,7 @@ import { GithubIcon } from "@/components/icons/brand-icons";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { PROJECT_KIND_LABEL } from "@/data/projects";
 import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -39,9 +40,9 @@ export function ProjectCard({ project }: { project: Project }) {
             )}
             <Badge
               variant="secondary"
-              className="text-xs capitalize opacity-70 transition-opacity group-hover:opacity-100"
+              className="text-xs opacity-70 transition-opacity group-hover:opacity-100"
             >
-              {project.type}
+              {PROJECT_KIND_LABEL[project.kind]}
             </Badge>
           </div>
         </div>

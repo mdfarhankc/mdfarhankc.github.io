@@ -34,8 +34,8 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 hidden dark:md:block"
       >
-        <div className="bg-primary/10 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
-        <div className="bg-chart-2/10 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
+        <div className="bg-primary/5 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
+        <div className="bg-chart-2/5 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
       {/* Stars - night only */}

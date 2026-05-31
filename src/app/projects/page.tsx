@@ -1,8 +1,5 @@
 import { getAllProjects } from "@/data/projects";
-import { Button } from "@/components/ui/button";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,15 +14,6 @@ export default function ProjectsPage() {
   return (
     <main id="main-content" className="min-h-screen px-6 pt-32 pb-20">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back Home
-            </Link>
-          </Button>
-        </div>
-
         <div className="mb-12">
           <p className="text-primary mb-2 font-mono text-sm tracking-widest uppercase">
             All Projects

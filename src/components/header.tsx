@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
@@ -9,14 +11,16 @@ import { ThemeToggle } from "@/components/theme/theme-toggle";
 import Logo from "./logo";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function Header() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -29,15 +33,19 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active-section highlight - IntersectionObserver, no per-scroll DOM reads
+  // Active-section highlight - IntersectionObserver, only on home where sections exist
   useEffect(() => {
+    if (!onHome) {
+      setActiveSection("");
+      return;
+    }
     const observers: IntersectionObserver[] = [];
-    for (const { href } of links) {
-      const el = document.getElementById(href.slice(1));
+    for (const { id } of links) {
+      const el = document.getElementById(id);
       if (!el) continue;
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(href);
+          if (entry.isIntersecting) setActiveSection(id);
         },
         { rootMargin: "-100px 0px -85% 0px" },
       );
@@ -45,7 +53,7 @@ export function Header() {
       observers.push(observer);
     }
     return () => observers.forEach((o) => o.disconnect());
-  }, []);
+  }, [onHome]);
 
   return (
     <motion.header
@@ -67,11 +75,11 @@ export function Header() {
         {/* Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => {
-            const isActive = activeSection === link.href;
+            const isActive = activeSection === link.id;
             return (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.id}>
+                <Link
+                  href={`/#${link.id}`}
                   aria-current={isActive ? "page" : undefined}
                   className={`relative text-sm transition-colors ${
                     isActive
@@ -91,13 +99,13 @@ export function Header() {
                       }}
                     />
                   )}
-                </a>
+                </Link>
               </li>
             );
           })}
           <li>
             <Button size="sm" asChild>
-              <a href="#contact">Let&apos;s Talk</a>
+              <Link href="/#contact">Let&apos;s Talk</Link>
             </Button>
           </li>
           <li>
@@ -132,25 +140,25 @@ export function Header() {
           >
             <ul className="flex flex-col gap-4 px-6 py-6">
               {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
+                <li key={link.id}>
+                  <Link
+                    href={`/#${link.id}`}
                     onClick={() => setMobileOpen(false)}
                     className={`text-lg transition-colors ${
-                      activeSection === link.href
+                      activeSection === link.id
                         ? "text-primary font-medium"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
                 <Button className="w-full" asChild>
-                  <a href="#contact" onClick={() => setMobileOpen(false)}>
+                  <Link href="/#contact" onClick={() => setMobileOpen(false)}>
                     Let&apos;s Talk
-                  </a>
+                  </Link>
                 </Button>
               </li>
             </ul>

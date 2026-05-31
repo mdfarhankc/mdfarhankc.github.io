@@ -1,4 +1,16 @@
-import { Project } from "@/types";
+import { Project, ProjectKind, ProjectOwnership } from "@/types";
+
+export const PROJECT_KIND_LABEL: Record<ProjectKind, string> = {
+  fullstack: "Full Stack",
+  frontend: "Frontend",
+  backend: "Backend",
+  library: "Library",
+};
+
+export const PROJECT_OWNERSHIP_LABEL: Record<ProjectOwnership, string> = {
+  personal: "Personal",
+  professional: "Professional",
+};
 
 export const projects: Project[] = [
   {
@@ -26,7 +38,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/mdfarhankc/fastapi-fullauth",
     liveUrl: "https://pypi.org/project/fastapi-fullauth/",
     featured: true,
-    type: "personal",
+    kind: "library",
+    ownership: "personal",
     highlights: [
       "Composable opt-in architecture - abstract user adapter plus four optional mixins (Role, Permission, OAuth, Passkey); routers auto-skip when the adapter lacks the matching mixin, and model submodules register their tables only when imported via lazy __getattr__ so an email/password-only app gets exactly two tables and nothing else",
       "JWT access/refresh tokens with atomic compare-and-swap rotation - concurrent refresh calls with the same token can no longer both succeed, and CAS failure triggers family-wide revocation as reuse-replay detection; Argon2id and bcrypt password hashing with transparent rehashing on login and explicit 72-byte rejection to prevent silent bcrypt truncation",
@@ -66,7 +79,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/mdfarhankc/LetsChat",
     liveUrl: null,
     featured: true,
-    type: "personal",
+    kind: "fullstack",
+    ownership: "personal",
     highlights: [
       "Single per-user WebSocket endpoint carries messages, presence, and typing - authenticated with a first-message {type:'auth', token} handshake so the JWT stays out of connection access logs, with an app-defined 4401 close code on auth failure; an in-memory connection registry (dict[UUID, set[WebSocket]]) tracks every open socket per user and detects online/offline transitions on the first and last socket",
       "Optimistic message delivery via TanStack Query - a client-generated nonce inserts the message instantly with a 'sending' state, then reconciles idempotently against the server's message.new broadcast by filtering on both id and nonce so the real row replaces the optimistic one with zero duplicates, and onError flips it to a visible 'failed' state",
@@ -101,7 +115,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/mdfarhankc/resumecraft",
     liveUrl: "https://pypi.org/project/resumecraft/",
     featured: true,
-    type: "personal",
+    kind: "library",
+    ownership: "personal",
     highlights: [
       "Renders polished DOCX or PDF resumes from JSON or YAML - auto-bold keywords inside bullet points, right-aligned dates via tab stops, clickable hyperlinks for email and project URLs, and smart page breaks that keep section headings with their content",
       "Pydantic v2 strict validation rejects field-name typos via extra='forbid', enforces non-empty contact fields (location, email, phone), validates section_order against allowed names, rejects duplicates, and surfaces friendly error messages with full field paths",
@@ -125,7 +140,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/mdfarhankc/odoo_rest_api",
     liveUrl: null,
     featured: false,
-    type: "personal",
+    kind: "library",
+    ownership: "personal",
     highlights: [
       "Decorator-based routing (@api.get, @api.post, etc.) with dynamic controller generation",
       "Automatic request parsing using Python introspection",
