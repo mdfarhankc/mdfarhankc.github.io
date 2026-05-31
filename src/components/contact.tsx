@@ -46,8 +46,11 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative px-6 py-32">
-      {/* Background accent */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block">
+      {/* Background accent (dark mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden dark:md:block"
+      >
         <div className="bg-primary/5 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
       </div>
 
@@ -57,10 +60,7 @@ export function Contact() {
           title={
             <>
               Let&apos;s launch something{" "}
-              <span
-                className="from-foreground/60 via-foreground to-foreground/60 bg-linear-to-r bg-size-[200%_auto] bg-clip-text text-transparent"
-                style={{ animation: "shimmer 3s ease-in-out infinite" }}
-              >
+              <span className="shimmer-text from-foreground/60 via-foreground to-foreground/60 bg-linear-to-r bg-size-[200%_auto] bg-clip-text text-transparent">
                 great
               </span>
             </>

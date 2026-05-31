@@ -1,9 +1,10 @@
 import Link from "next/link";
+import type { Route } from "next";
 
 import { Separator } from "@/components/ui/separator";
 import { socials } from "@/data/socials";
 
-const navLinks = [
+const navLinks: { href: Route; label: string }[] = [
   { href: "/#about", label: "About" },
   { href: "/#experience", label: "Experience" },
   { href: "/#skills", label: "Skills" },
