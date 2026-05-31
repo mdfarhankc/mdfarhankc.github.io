@@ -193,6 +193,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <motion.a
         href="#about"
+        aria-label="Scroll to About section"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
@@ -202,7 +203,7 @@ export function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Rocket size={20} className="rotate-180" />
+          <Rocket size={20} className="rotate-180" aria-hidden="true" />
         </motion.div>
       </motion.a>
     </section>
