@@ -20,6 +20,14 @@ export function Skills() {
         <div className="bg-primary/5 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
       </div>
 
+      {/* Day glow (light mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
+      >
+        <div className="bg-amber-300/20 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
+      </div>
+
       {/* Twinkling stars */}
       <div
         aria-hidden="true"

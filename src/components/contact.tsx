@@ -54,6 +54,14 @@ export function Contact() {
         <div className="bg-primary/5 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
       </div>
 
+      {/* Day glow (light mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
+      >
+        <div className="bg-amber-300/20 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
+      </div>
+
       <div ref={ref} className="relative mx-auto max-w-5xl">
         <SectionHeader
           eyebrow="Get In Touch"

@@ -38,6 +38,16 @@ export function Hero() {
         <div className="bg-chart-2/5 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
       </div>
 
+      {/* Sun + clouds (light mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
+      >
+        <div className="bg-amber-300/25 absolute -top-20 -right-20 h-[28rem] w-[28rem] rounded-full blur-[140px]" />
+        <div className="bg-sky-300/20 absolute bottom-10 -left-32 h-96 w-96 rounded-full blur-[120px]" />
+        <div className="bg-sky-200/15 absolute top-1/3 right-1/3 h-72 w-72 rounded-full blur-[100px]" />
+      </div>
+
       {/* Stars - night only */}
       <div
         aria-hidden="true"

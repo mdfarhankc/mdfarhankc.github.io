@@ -21,6 +21,15 @@ export function Experience() {
         <div className="bg-primary/5 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
       </div>
 
+      {/* Day glow (light mode + desktop only) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
+      >
+        <div className="bg-amber-300/20 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
+        <div className="bg-sky-300/15 absolute bottom-1/4 left-10 h-96 w-96 rounded-full blur-[120px]" />
+      </div>
+
       {/* Shooting stars */}
       <div
         aria-hidden="true"
