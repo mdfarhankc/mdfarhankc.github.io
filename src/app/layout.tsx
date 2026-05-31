@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Mohammed Farhan K C - Python Full Stack Developer & FastAPI Specialist",
+    title: "Mohammed Farhan K C - Python & FastAPI Full Stack Developer",
     description:
-      "Python Full-Stack Developer with 3+ years of experience building scalable web and mobile apps with FastAPI, Django, React, Next.js, and Flutter. Open-source maintainer on PyPI.",
+      "Python full-stack developer with 3+ years building scalable web apps with FastAPI, Django, React, and Next.js. Open source on PyPI.",
     siteName: "Farhan's Portfolio",
     images: [
       {
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohammed Farhan K C - Python Full Stack Developer & FastAPI Specialist",
+    title: "Mohammed Farhan K C - Python & FastAPI Full Stack Developer",
     description:
-      "Python Full-Stack Developer with 3+ years of experience building scalable web and mobile apps with FastAPI, Django, React, Next.js, and Flutter. Open-source maintainer on PyPI.",
+      "Python full-stack developer with 3+ years building scalable web apps with FastAPI, Django, React, and Next.js. Open source on PyPI.",
     images: [`${siteUrl}/og.png`],
   },
   robots: {
