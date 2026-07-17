@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <Link href={`/projects/${project.slug}`} className="block h-full">
       <Card className="group border-border/50 bg-card/50 hover:border-primary/30 hover:shadow-primary/5 h-full overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
         <div
-          className={`relative flex aspect-3/1 items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
+          className={`relative flex aspect-video items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
         >
           {project.image ? (
             <Image
@@ -24,9 +24,20 @@ export function ProjectCard({ project }: { project: Project }) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="text-foreground/10 text-6xl font-bold">
-              {project.title.charAt(0)}
-            </div>
+            <>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-50"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--foreground) 14%, transparent) 1px, transparent 0)",
+                  backgroundSize: "16px 16px",
+                }}
+              />
+              <span className="text-foreground/15 relative text-8xl font-bold tracking-tight transition-transform duration-500 group-hover:scale-110">
+                {project.title.charAt(0)}
+              </span>
+            </>
           )}
           <div className="absolute right-3 bottom-3 flex gap-2">
             {project.githubUrl && (
@@ -48,7 +59,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <CardContent className="space-y-4 p-6">
-          <h3 className="group-hover:text-primary text-xl font-semibold transition-colors">
+          <h3 className="group-hover:text-accent-ink text-xl font-semibold transition-colors">
             {project.title}
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">

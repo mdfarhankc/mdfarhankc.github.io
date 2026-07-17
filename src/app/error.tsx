@@ -4,36 +4,13 @@ import { Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { SectionGlow } from "@/components/section-glow";
 
 export default function Error({ reset }: { reset: () => void }) {
   return (
     <section className="bg-background relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Stars - night only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden opacity-70 dark:block"
-        style={{
-          backgroundImage:
-            "radial-gradient(1px 1px at 20% 30%, white 50%, transparent 100%), radial-gradient(1.5px 1.5px at 70% 70%, white 50%, transparent 100%), radial-gradient(1px 1px at 40% 10%, white 50%, transparent 100%), radial-gradient(1.5px 1.5px at 88% 80%, white 50%, transparent 100%), radial-gradient(1px 1px at 30% 80%, white 50%, transparent 100%), radial-gradient(1px 1px at 65% 35%, white 50%, transparent 100%)",
-          backgroundSize: "400px 400px",
-          animation: "drift 60s linear infinite",
-        }}
-      />
-
-      {/* Shooting star - night only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-[22%] left-[18%] hidden h-px w-32 bg-gradient-to-r from-white/70 to-transparent dark:block"
-        style={{ animation: "shooting-star-slow 13s ease-out infinite" }}
-      />
-      {/* Subtle nebula glow (dark mode only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-      >
-        <div className="bg-foreground/5 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
-        <div className="bg-foreground/5 absolute right-1/3 bottom-1/3 h-64 w-64 rounded-full blur-[100px]" />
-      </div>
+      <SectionGlow variant="top-left" />
+      <SectionGlow variant="bottom" />
 
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="text-muted-foreground mb-4 font-mono text-sm tracking-widest uppercase">

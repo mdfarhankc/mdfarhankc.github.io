@@ -6,6 +6,7 @@ import { Award, Briefcase, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeader } from "@/components/section-header";
+import { SectionGlow } from "@/components/section-glow";
 import { useFadeInView } from "@/lib/use-fade-in-view";
 import { experiences } from "@/data/experiences";
 
@@ -13,48 +14,15 @@ export function Experience() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="experience" className="relative overflow-hidden px-6 py-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:md:block"
-      >
-        <div className="bg-primary/5 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
-      </div>
-
-      {/* Day glow (light mode + desktop only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
-      >
-        <div className="bg-amber-300/20 absolute top-1/3 right-1/4 h-125 w-125 rounded-full blur-[150px]" />
-        <div className="bg-sky-300/15 absolute bottom-1/4 left-10 h-96 w-96 rounded-full blur-[120px]" />
-      </div>
-
-      {/* Shooting stars */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden overflow-hidden dark:block"
-      >
-        <div
-          className="absolute top-[15%] left-[10%] h-px w-32 bg-gradient-to-r from-foreground/40 to-transparent"
-          style={{ animation: "shooting-star 3s ease-out 0s infinite" }}
-        />
-        <div
-          className="absolute top-[35%] left-[55%] h-px w-24 bg-gradient-to-r from-foreground/30 to-transparent"
-          style={{ animation: "shooting-star 3s ease-out 5s infinite" }}
-        />
-        <div
-          className="absolute top-[8%] left-[70%] h-px w-20 bg-gradient-to-r from-foreground/25 to-transparent"
-          style={{ animation: "shooting-star 3s ease-out 9s infinite" }}
-        />
-      </div>
+    <section id="experience" className="relative overflow-hidden px-6 py-20">
+      <SectionGlow variant="top-right" />
 
       <div ref={ref} className="relative mx-auto max-w-4xl">
         <SectionHeader
           eyebrow="Experience & Education"
           title={
             <>
-              My <span className="text-primary">journey</span>
+              My <span className="text-accent-ink">journey</span>
             </>
           }
           isInView={isInView}
@@ -111,7 +79,7 @@ export function Experience() {
                         <h3 className="mb-1 text-lg font-semibold">
                           {item.title}
                         </h3>
-                        <p className="text-primary mb-3 text-sm font-medium">
+                        <p className="text-accent-ink mb-3 text-sm font-medium">
                           {item.organization}
                         </p>
                         {"highlight" in item && item.highlight && (

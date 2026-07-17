@@ -11,14 +11,14 @@ export function About() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="about" className="relative px-6 py-32">
+    <section id="about" className="relative px-6 py-20">
       <div ref={ref} className="mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="About Me"
           title={
             <>
               Passionate about building{" "}
-              <span className="text-primary">scalable solutions</span>
+              <span className="text-accent-ink">scalable solutions</span>
             </>
           }
           align="left"
@@ -45,7 +45,7 @@ export function About() {
                 AST Solutions LLC
               </span>{" "}
               (Dubai, Remote) since March 2023 - recognized as{" "}
-              <span className="text-primary font-medium">
+              <span className="text-accent-ink font-medium">
                 Best Performer 2025
               </span>
               . Previously interned at{" "}

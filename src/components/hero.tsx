@@ -2,9 +2,10 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Download, Rocket } from "lucide-react";
+import { Download, ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { WaveBackground } from "@/components/wave-background";
 import { socials } from "@/data/socials";
 import { highlights } from "@/data/stats";
 
@@ -29,42 +30,19 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Background orbs (dark mode + desktop only - heavy blur is expensive on mobile GPUs) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:md:block"
-      >
-        <div className="bg-primary/5 absolute top-1/4 left-1/4 h-96 w-96 rounded-full blur-[120px]" />
-        <div className="bg-chart-2/5 absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full blur-[120px]" />
+      {/* Animated diagonal light ribbons */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <WaveBackground />
       </div>
 
-      {/* Sun + clouds (light mode + desktop only) */}
+      {/* Ambient emerald glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
-      >
-        <div className="bg-amber-300/25 absolute -top-20 -right-20 h-[28rem] w-[28rem] rounded-full blur-[140px]" />
-        <div className="bg-sky-300/20 absolute bottom-10 -left-32 h-96 w-96 rounded-full blur-[120px]" />
-        <div className="bg-sky-200/15 absolute top-1/3 right-1/3 h-72 w-72 rounded-full blur-[100px]" />
-      </div>
-
-      {/* Stars - night only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden opacity-40 dark:block"
+        className="pointer-events-none absolute top-[-10%] left-1/2 h-[520px] w-[820px] max-w-[95vw] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
         style={{
-          backgroundImage:
-            "radial-gradient(1px 1px at 15% 25%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 75% 65%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 15%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 85% 85%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 25% 75%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 60% 40%, currentColor 50%, transparent 100%)",
-          backgroundSize: "400px 400px",
-          animation: "drift 80s linear infinite",
+          background:
+            "radial-gradient(closest-side, color-mix(in srgb, var(--primary) 22%, transparent), transparent)",
         }}
-      />
-
-      {/* Shooting star - night only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-[20%] left-[15%] hidden h-px w-32 bg-gradient-to-r from-foreground/60 to-transparent dark:block"
-        style={{ animation: "shooting-star-slow 12s ease-out infinite" }}
       />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
@@ -90,7 +68,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-primary mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest uppercase"
+          className="text-accent-ink mb-4 flex h-5 items-center justify-center font-mono text-sm tracking-widest uppercase"
           aria-hidden="true"
         >
           <AnimatePresence mode="wait">
@@ -111,7 +89,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mb-6 text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
+          className="mb-6 text-4xl leading-tight font-bold tracking-tight text-balance sm:text-5xl md:text-7xl lg:text-8xl"
         >
           {"Hi, I'm "}
           <span
@@ -130,10 +108,10 @@ export function Hero() {
         >
           {highlights.map((item, i) => (
             <Fragment key={item.label}>
-              {i > 0 && <span className="text-primary/40">•</span>}
+              {i > 0 && <span className="text-accent-ink/40">•</span>}
               <span
                 className={
-                  item.emphasis ? "text-primary font-medium" : undefined
+                  item.emphasis ? "text-accent-ink font-medium" : undefined
                 }
               >
                 {item.label}
@@ -146,7 +124,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-base leading-relaxed font-medium sm:text-lg"
+          className="text-muted-foreground mx-auto mb-10 max-w-2xl text-base leading-relaxed font-medium text-balance sm:text-lg"
         >
           I architect scalable backends with Python and FastAPI, and pair them
           with polished React frontends - complete products, not just features.
@@ -158,12 +136,21 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <Button size="default" className="px-6 sm:px-8" asChild>
+          <Button
+            size="lg"
+            className="h-11 w-full px-8 text-base sm:w-auto"
+            asChild
+          >
             <a href="#projects">View My Work</a>
           </Button>
-          <Button size="default" variant="outline" className="px-6 sm:px-8" asChild>
+          <Button
+            size="lg"
+            variant="outline"
+            className="h-11 w-full px-8 text-base sm:w-auto"
+            asChild
+          >
             <a href="/resume.pdf" download>
-              <Download className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <Download className="mr-2 h-4 w-4" />
               Download CV
             </a>
           </Button>
@@ -197,13 +184,13 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="text-muted-foreground hover:text-primary absolute bottom-10 left-1/2 -translate-x-1/2 transition-colors"
+        className="text-muted-foreground hover:text-accent-ink absolute bottom-10 left-1/2 -translate-x-1/2 transition-colors"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Rocket size={20} className="rotate-180" aria-hidden="true" />
+          <ChevronDown size={24} aria-hidden="true" />
         </motion.div>
       </motion.a>
     </section>

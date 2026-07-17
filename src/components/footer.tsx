@@ -38,14 +38,17 @@ export function Footer() {
             <h2 className="text-foreground mb-4 text-sm font-semibold">
               Explore
             </h2>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                    className="group text-muted-foreground hover:text-accent-ink flex w-fit items-center text-sm transition-colors"
                   >
-                    {link.label}
+                    <span className="bg-primary mr-0 h-px w-0 opacity-0 transition-all duration-300 ease-out group-hover:mr-3 group-hover:w-5 group-hover:opacity-100" />
+                    <span className="transition-transform duration-300 ease-out">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -86,7 +89,7 @@ export function Footer() {
               href="https://nextjs.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-accent-ink transition-colors"
             >
               Next.js
             </a>
@@ -95,7 +98,7 @@ export function Footer() {
               href="https://tailwindcss.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-accent-ink transition-colors"
             >
               Tailwind
             </a>{" "}
@@ -104,7 +107,7 @@ export function Footer() {
               href="https://ui.shadcn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-accent-ink transition-colors"
             >
               shadcn/ui
             </a>

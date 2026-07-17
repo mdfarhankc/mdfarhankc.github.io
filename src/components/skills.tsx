@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 
 import { Badge } from "@/components/ui/badge";
 import { SectionHeader } from "@/components/section-header";
+import { SectionGlow } from "@/components/section-glow";
 import { useFadeInView } from "@/lib/use-fade-in-view";
 import { skillCategories } from "@/data/skills";
 
@@ -11,40 +12,15 @@ export function Skills() {
   const { ref, isInView } = useFadeInView();
 
   return (
-    <section id="skills" className="relative overflow-hidden px-6 py-32">
-      {/* Background accent (dark mode + desktop only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:md:block"
-      >
-        <div className="bg-primary/5 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
-      </div>
-
-      {/* Day glow (light mode + desktop only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
-      >
-        <div className="bg-amber-300/20 absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
-      </div>
-
-      {/* Twinkling stars */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(1px 1px at 15% 25%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 45% 70%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 80% 15%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 65% 55%, currentColor 50%, transparent 100%), radial-gradient(1px 1px at 30% 45%, currentColor 50%, transparent 100%), radial-gradient(1.5px 1.5px at 90% 80%, currentColor 50%, transparent 100%)",
-          animation: "twinkle 4s ease-in-out infinite",
-        }}
-      />
+    <section id="skills" className="relative overflow-hidden px-6 py-20">
+      <SectionGlow variant="center" />
 
       <div ref={ref} className="relative mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="Skills & Tools"
           title={
             <>
-              My <span className="text-primary">tech stack</span>
+              My <span className="text-accent-ink">tech stack</span>
             </>
           }
           isInView={isInView}

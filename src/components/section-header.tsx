@@ -29,7 +29,7 @@ export function SectionHeader({
       transition={{ duration: 0.7 }}
       className={cn(align === "center" && "text-center", className)}
     >
-      <p className="text-primary mb-2 font-mono text-sm tracking-widest uppercase">
+      <p className="text-accent-ink mb-2 font-mono text-sm tracking-widest uppercase">
         {eyebrow}
       </p>
       <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">

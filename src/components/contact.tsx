@@ -7,6 +7,7 @@ import { Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/section-header";
+import { SectionGlow } from "@/components/section-glow";
 import { useFadeInView } from "@/lib/use-fade-in-view";
 import { socials } from "@/data/socials";
 
@@ -45,22 +46,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative px-6 py-32">
-      {/* Background accent (dark mode + desktop only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden dark:md:block"
-      >
-        <div className="bg-primary/5 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
-      </div>
-
-      {/* Day glow (light mode + desktop only) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hidden md:block dark:md:hidden"
-      >
-        <div className="bg-amber-300/20 absolute bottom-0 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full blur-[150px]" />
-      </div>
+    <section id="contact" className="relative overflow-hidden px-6 py-20">
+      <SectionGlow variant="bottom" />
 
       <div ref={ref} className="relative mx-auto max-w-5xl">
         <SectionHeader
